@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/11 17:26:20 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:56:10 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
@@ -22,7 +23,10 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }					t_stack;
 
-int	check_input(char **array, int ac);
+int		check_input(char **array, int ac);
 long	ft_atoi_long(const char *nptr);
+t_stack	*clst_create_node(int data);
+t_stack	*clst_insert_node(t_stack **head, int data);
+t_stack	*clst_load(char **av, int ac);
 
 #endif

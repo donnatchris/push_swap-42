@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 17:24:15 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/11 17:26:52 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/12 18:38:01 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Function to convert a string to a long integer
 long	ft_atoi_long(const char *nptr)
 {
 	int		i;

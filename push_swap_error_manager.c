@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_manager2.c                                   :+:      :+:    :+:   */
+/*   error_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:45:45 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/11 17:14:09 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:56:17 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Function to check if the input is valid
 int	check_input(char **array, int ac)
 {
 	int		i;
