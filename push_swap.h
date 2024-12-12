@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/12 20:09:46 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/12 20:25:39 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }					t_stack;
 
-// error_manager.c
+// push_swap_error_manager.c
 int		check_input(char **array, int ac);
 
 // push_swap_utils.c

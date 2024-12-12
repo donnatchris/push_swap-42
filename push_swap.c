@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:08 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/12 19:56:37 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/12 21:36:00 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	if (ac < 2)
 		return (0);
 	if (check_input(av, ac) == -1)
