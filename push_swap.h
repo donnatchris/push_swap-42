@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/12 19:56:10 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/12 20:09:46 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }					t_stack;
 
+// error_manager.c
 int		check_input(char **array, int ac);
+
+// push_swap_utils.c
 long	ft_atoi_long(const char *nptr);
+
+// push_swap_clst.c
 t_stack	*clst_create_node(int data);
 t_stack	*clst_insert_node(t_stack **head, int data);
 t_stack	*clst_load(char **av, int ac);
