@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:08 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 21:34:52 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 22:07:24 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,12 @@ int	main(int ac, char **av)
     printf("After reverse rotate:\n");
     rra(&stack_a);
     dclst_print(stack_a);
-
-
+    printf("After rotate:\n");
+    ra(&stack_a);
+    dclst_print(stack_a);
+    printf("After sa:\n");
+    sa(&stack_a);
+    dclst_print(stack_a);
+    
     return (0);
 }
