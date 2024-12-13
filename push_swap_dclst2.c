@@ -6,22 +6,55 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 12:49:00 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 22:06:15 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 23:31:00 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Function to swap 2 nodes
-int dclst_swap_nodes(t_stack *node1, t_stack *node2)
+// Function to swap 2 nodes in the doubly circular linked list
+int dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2)
 {
-    int temp;
+    t_stack *temp_next;
+    t_stack *temp_previous;
 
-    if (!node1 || !node2 || (node1 == node2))
+    if (!head || !*head || !node1 || !node2 || (node1 == node2))
         return (-1);
-    temp = node1->data;
-    node1->data = node2->data;
-    node2->data = temp;
+    if (node1->next == node2)
+    {
+        node1->previous->next = node2;
+        node2->next->previous = node1;
+        node1->next = node2->next;
+        node2->previous = node1->previous;
+        node1->previous = node2;
+        node2->next = node1;
+    }
+    else if (node2->next == node1)
+    {
+        node2->previous->next = node1;
+        node1->next->previous = node2;
+        node2->next = node1->next;
+        node1->previous = node2->previous;
+        node2->previous = node1;
+        node1->next = node2;
+    }
+    else
+    {
+        node1->previous->next = node2;
+        node1->next->previous = node2;
+        node2->previous->next = node1;
+        node2->next->previous = node1;
+        temp_next = node1->next;
+        temp_previous = node1->previous;
+        node1->next = node2->next;
+        node1->previous = node2->previous;
+        node2->next = temp_next;
+        node2->previous = temp_previous;
+    }
+    if (*head == node1)
+        *head = node2;
+    else if (*head == node2)
+        *head = node1;
     return (0);
 }
 

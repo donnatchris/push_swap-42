@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:02:42 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/13 22:03:05 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 22:26:55 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int sa(t_stack **stack_a)
     
     if (!stack_a || !*stack_a || !(*stack_a)->next)
         return (-1);
-    result = dclst_swap_nodes(*stack_a, (*stack_a)->next);
+    result = dclst_swap_nodes(stack_a, *stack_a, (*stack_a)->next);
     return (result);
 }
 
@@ -30,7 +30,7 @@ int sb(t_stack **stack_b)
     
     if (!stack_b || !*stack_b || !(*stack_b)->next)
         return (-1);
-    result = dclst_swap_nodes(*stack_b, (*stack_b)->next);
+    result = dclst_swap_nodes(stack_b, *stack_b, (*stack_b)->next);
     return (result);
 }
 

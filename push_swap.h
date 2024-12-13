@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 22:02:50 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 22:26:17 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void    dclst_remove_node(t_stack **head, t_stack *node);
 void    dclst_clear(t_stack **head);
 
 // push_swap_dclst2.c
-int dclst_swap_nodes(t_stack *node1, t_stack *node2);
+int dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 void	dclst_print(t_stack *head);
 
 // push_swap_swap.c
