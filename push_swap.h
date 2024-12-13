@@ -6,7 +6,7 @@
 /*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 14:29:09 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:50:38 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,15 @@ int sb(t_stack **stack_b);
 // push_swap_push.c
 int    pa(t_stack **stack_a, t_stack **stack_b);
 int    pb(t_stack **stack_a, t_stack **stack_b);
+
+// push_swap_rotate.c
+int ra(t_stack **stack_a);
+int rb(t_stack **stack_b);
+int rr(t_stack **stack_a, t_stack **stack_b);
+
+// push_swap_reverse_rotate.c
+int rra(t_stack **stack_a);
+int rrb(t_stack **stack_b);
+int rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif
