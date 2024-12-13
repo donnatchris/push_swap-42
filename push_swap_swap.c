@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:02:42 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/13 14:05:38 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:29:18 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

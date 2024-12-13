@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:08 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 11:37:50 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:34:52 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,25 @@ int	main(int ac, char **av)
 		return (write(2, "Error\n", 6), 2);
 	if (ac == 2)
 	{
-		if (is_int(ft_atoi_long(av[1])) == 0);
+		if (is_int(ft_atoi_long(av[1])) == 0)
 			return (write(2, "Error\n", 6), 2);
 		return (0);	
 	}
 	stack_a = dclst_load(av, ac);
 	if (stack_a == NULL)
 		return (write(2, "Error\n", 6), 2);
+
+
+    // TESTS TO REMOVE BEFORE SUBMITTING
+    printf("Original list:\n");
+    dclst_print(stack_a);
+    printf("After sa:\n");
+    sa(&stack_a);
+    dclst_print(stack_a);
+    printf("After reverse rotate:\n");
+    rra(&stack_a);
+    dclst_print(stack_a);
+
+
+    return (0);
 }

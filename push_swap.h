@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 14:50:38 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 20:56:59 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+// ATENTION, MUST BE REMOVED BEFORE SUBMITTING
+# include <stdio.h>
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -27,8 +30,8 @@ typedef struct s_stack
 t_stack *dclst_load(char **av, int ac);
 
 // push_swap_error_manager.c
-int		check_input(char **array, int ac);
-int		is_int(long n);
+int	check_input(char **array, int ac);
+int	is_int(long n);
 int	has_double(t_stack *head, int data);
 
 // push_swap_utils.c
@@ -43,6 +46,7 @@ void    dclst_clear(t_stack **head);
 
 // push_swap_dclst2.c
 int dclst_swap_node(t_stack *node1, t_stack *node2);
+void	dclst_print(t_stack *head);
 
 // push_swap_swap.c
 int sa(t_stack **stack_a);
@@ -50,8 +54,8 @@ int sb(t_stack **stack_b);
 int sb(t_stack **stack_b);
 
 // push_swap_push.c
-int    pa(t_stack **stack_a, t_stack **stack_b);
-int    pb(t_stack **stack_a, t_stack **stack_b);
+int	pa(t_stack **stack_a, t_stack **stack_b);
+int	pb(t_stack **stack_a, t_stack **stack_b);
 
 // push_swap_rotate.c
 int ra(t_stack **stack_a);

@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_error_manager.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:45:45 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 11:46:16 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:00:57 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Function to check if the character is a digit
+static int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
 // Function to check if the input is valid
 int	check_input(char **array, int ac)
