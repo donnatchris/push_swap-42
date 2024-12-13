@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/12 20:25:39 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 09:55:46 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }					t_stack;
 
+// push_swap.c
+
+// Function to load the doubly circular linked list with the input values
+t_stack *dclst_load(char **av, int ac);
+
 // push_swap_error_manager.c
 int		check_input(char **array, int ac);
 
@@ -30,8 +35,9 @@ int		check_input(char **array, int ac);
 long	ft_atoi_long(const char *nptr);
 
 // push_swap_clst.c
-t_stack	*clst_create_node(int data);
-t_stack	*clst_insert_node(t_stack **head, int data);
-t_stack	*clst_load(char **av, int ac);
+t_stack	*dclst_create_node(int data);
+t_stack	*dclst_insert_node_end(t_stack **head, int data);
+t_stack *dclst_insert_node_start(t_stack **head, int data);
+void    dclst_remove_node(t_stack **head, t_stack *node);
 
 #endif

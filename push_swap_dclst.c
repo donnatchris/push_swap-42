@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_clst.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/12 19:51:27 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 09:52:37 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Function to create a new node in the doubly circular linked list
-t_stack *clst_create_node(int data)
+t_stack *dclst_create_node(int data)
 {
     t_stack *new;
 
@@ -27,11 +27,11 @@ t_stack *clst_create_node(int data)
 }
 
 // Function to insert a new node at the end of the doubly circular linked list
-t_stack *clst_insert_node(t_stack **head, int data)
+t_stack *dclst_insert_node_end(t_stack **head, int data)
 {
     t_stack *new;
 
-    new = clst_create_node(data);
+    new = dclst_create_node(data);
     if (!new)
         return (NULL);
     if (!*head)
@@ -46,25 +46,35 @@ t_stack *clst_insert_node(t_stack **head, int data)
     return (new);
 }
 
-// Function to load the doubly circular linked list with the input values
-t_stack *clst_load(char **av, int ac)
+// Function to insert a new node at the start of the doubly circular linked list
+t_stack *dclst_insert_node_start(t_stack **head, int data)
 {
-    t_stack *head;
-    t_stack *new;
-    int     data;
-    int     i;
+    t_stack	*new;
 
-    head = NULL;
-    i = 1;
-    while (i < ac)
+    new = dclst_insert_node_end(head, data);
+    if (!new)
+        return (NULL);
+    *head = new;
+    return (new);
+}
+
+// Function to remove a nod from the doubly circular linked list
+void    dclst_remove_node(t_stack **head, t_stack *node)
+{
+    if (head && *head && node)
     {
-        data = ft_atoi_long(av[i]);
-        if (data < -2147483648 || data > 2147483647)
-            return (ft_free_stack(head), NULL);
-        new = clst_insert_node(&head, data);
-        if (!new)
-            return (ft_free_stack(head), NULL);
-        i++;
+		if (node == *head)
+		{
+			if ((*head)->next == *head)
+			{
+				free (*head);
+				*head = NULL;
+				return ;
+			}
+			*head = node->next;
+		}
+		node->next->previous = node->previous;
+		node->previous->next = node->next;
+		free(node);
     }
-    return (head);
 }
