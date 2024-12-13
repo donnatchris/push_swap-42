@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_clst.c                                   :+:      :+:    :+:   */
+/*   push_swap_dclst.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 18:08:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/13 09:52:37 by chdonnat         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:49:09 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_stack *dclst_insert_node_start(t_stack **head, int data)
     return (new);
 }
 
-// Function to remove a nod from the doubly circular linked list
+// Function to remove a node from the doubly circular linked list
 void    dclst_remove_node(t_stack **head, t_stack *node)
 {
     if (head && *head && node)
@@ -77,4 +77,11 @@ void    dclst_remove_node(t_stack **head, t_stack *node)
 		node->previous->next = node->next;
 		free(node);
     }
+}
+
+// Function to clear the entire doubly circular linked list
+void    dclst_clear(t_stack **head)
+{
+    while (*head)
+        dclst_remove_node(head, *head);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_manager.c                                    :+:      :+:    :+:   */
+/*   push_swap_error_manager.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:45:45 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/12 19:56:17 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 11:46:16 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,34 @@ int	check_input(char **array, int ac)
 			str++;
 		}
 		i++;
+	}
+	return (0);
+}
+
+// Function to check if the input is an int
+int	is_int(long n)
+{
+	if (n < -2147483648 || n > 2147483647)
+		return (0);
+	return (1);
+}
+
+// Function to check if the input has a double
+int	has_double(t_stack *head, int data)
+{
+	t_stack	*current;
+
+	if (!head)
+		return (0);
+	current = head;
+	if (current->data == data)
+		return (1);
+	current = current->next;
+	while (current != head)
+	{
+		if (current->data == data)
+			return (1);
+		current = current->next;
 	}
 	return (0);
 }

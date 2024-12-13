@@ -1,49 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_instructions.c                           :+:      :+:    :+:   */
+/*   push_swap_instructions1.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:02:42 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/12 22:06:55 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 12:11:12 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Function to swap the first two elements of the stack a
-void    sa(t_stack **stack_a)
+// Function to swap the first two elements of a stack
+int    swap(t_stack **head)
+{
+    int temp;
+
+    if (!*head || (*head)->next == *head)
+        return (1);
+    temp = (*head)->data;
+    (*head)->data = (*head)->next->data;
+    (*head)->next->data = temp;
+}
 
 // Function to swap the first two elements of the stack b
-void    sb(t_stack **stack_b)  
+int    sb(t_stack **stack_b) 
 
 // Function to swap the first two elements of the stack a and b
-void    ss(t_stack **stack_a, t_stack **stack_b)
+int    ss(t_stack **stack_a, t_stack **stack_b)
 
 // Function to push the first element of the stack b to the stack a
-void    pa(t_stack **stack_a, t_stack **stack_b)
+int    pa(t_stack **stack_a, t_stack **stack_b)
 
 // Function to push the first element of the stack a to the stack b
-void    pb(t_stack **stack_a, t_stack **stack_b)
+int    pb(t_stack **stack_a, t_stack **stack_b)
 
 // Function to rotate the stack a
-void    ra(t_stack **stack_a)
+int    ra(t_stack **stack_a)
 
 // Function to rotate the stack b
-void    rb(t_stack **stack_b)
+int    rb(t_stack **stack_b)
 
 // Function to rotate the stack a and b
-void    rr(t_stack **stack_a, t_stack **stack_b)
+int    rr(t_stack **stack_a, t_stack **stack_b)
 
 // Function to reverse rotate the stack a
-void    rra(t_stack **stack_a)
+int    rra(t_stack **stack_a)
 
 // Function to reverse rotate the stack b
-void    rrb(t_stack **stack_b)
+int    rrb(t_stack **stack_b)
 
 // Function to reverse rotate the stack a and b
-void    rrr(t_stack **stack_a, t_stack **stack_b)
+int    rrr(t_stack **stack_a, t_stack **stack_b)
 
 /*
 sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
