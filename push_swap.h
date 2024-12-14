@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:20:47 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 22:26:17 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/13 23:40:28 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ typedef struct s_stack
 t_stack *dclst_load(char **av, int ac);
 
 // push_swap_error_manager.c
-int	check_input(char **array, int ac);
-int	is_int(long n);
-int	has_double(t_stack *head, int data);
+int		check_input(char **array, int ac);
+int		is_int(long n);
+int		has_double(t_stack *head, int data);
 
 // push_swap_utils.c
 long	ft_atoi_long(const char *nptr);
@@ -45,26 +45,29 @@ void    dclst_remove_node(t_stack **head, t_stack *node);
 void    dclst_clear(t_stack **head);
 
 // push_swap_dclst2.c
-int dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+void	swap_adjacent_nodes_reverse(t_stack **head, t_stack *node1, t_stack *node2);
+void	swap_non_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 void	dclst_print(t_stack *head);
 
 // push_swap_swap.c
-int sa(t_stack **stack_a);
-int sb(t_stack **stack_b);
-int sb(t_stack **stack_b);
+int 	sa(t_stack **stack_a);
+int 	sb(t_stack **stack_b);
+int 	sb(t_stack **stack_b);
 
 // push_swap_push.c
-int	pa(t_stack **stack_a, t_stack **stack_b);
-int	pb(t_stack **stack_a, t_stack **stack_b);
+int		pa(t_stack **stack_a, t_stack **stack_b);
+int		pb(t_stack **stack_a, t_stack **stack_b);
 
 // push_swap_rotate.c
-int ra(t_stack **stack_a);
-int rb(t_stack **stack_b);
-int rr(t_stack **stack_a, t_stack **stack_b);
+int 	ra(t_stack **stack_a);
+int 	rb(t_stack **stack_b);
+int 	rr(t_stack **stack_a, t_stack **stack_b);
 
 // push_swap_reverse_rotate.c
-int rra(t_stack **stack_a);
-int rrb(t_stack **stack_b);
-int rrr(t_stack **stack_a, t_stack **stack_b);
+int 	rra(t_stack **stack_a);
+int 	rrb(t_stack **stack_b);
+int 	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

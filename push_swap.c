@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:20:08 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/13 23:29:03 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/14 00:13:53 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ int	main(int ac, char **av)
     printf("Switch 5 and 3\n");
     dclst_swap_nodes(&stack_a, stack_a->next->next->next->next, stack_a->next->next);
     dclst_print(stack_a);
+    
+    printf("Switch 1 and 2\n");
+    dclst_swap_nodes(&stack_a, stack_a, stack_a->next);
+    dclst_print(stack_a);
+    printf("Switch 2 and 1\n");
+    dclst_swap_nodes(&stack_a, stack_a->next, stack_a);
+    dclst_print(stack_a);
+
     printf("Switch 1 and 5\n");
     dclst_swap_nodes(&stack_a, stack_a, stack_a->next->next->next->next);
     dclst_print(stack_a);
