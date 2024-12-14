@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   push_swap.c										:+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: christophedonnat <christophedonnat@stud	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/12/11 16:20:08 by chdonnat		  #+#	#+#			 */
-/*   Updated: 2024/12/14 08:22:33 by christophed	  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/14 10:05:27 by christophed      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -58,6 +58,7 @@ int	main(int ac, char **av)
 	// TESTS TO REMOVE BEFORE SUBMITTING
 	printf("Original list:\n");
 	dclst_print(stack_a);
+	dclst_print(stack_b);
 	// printf("Switch 3 and 5\n");
 	// dclst_swap_nodes(&stack_a, stack_a->next->next, stack_a->next->next->next->next);
 	// dclst_print(stack_a);
@@ -103,15 +104,49 @@ int	main(int ac, char **av)
 	printf("After sa:\n");
 	sa(&stack_a);
 	dclst_print(stack_a);
+	dclst_print(stack_b);
 	printf("After sa:\n");
 	sa(&stack_a);
 	dclst_print(stack_a);
-	printf("After reverse rotate:\n");
+	dclst_print(stack_b);
+	printf("After rra:\n");
 	rra(&stack_a);
 	dclst_print(stack_a);
-	printf("After rotate:\n");
+	dclst_print(stack_b);
+	printf("After ra:\n");
 	ra(&stack_a);
 	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After pb:\n");
+	pb(&stack_a, &stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After pb:\n");
+	pb(&stack_a, &stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After sb:\n");
+	sb(&stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After sb:\n");
+	sb(&stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After rrb:\n");
+	rrb(&stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After rb:\n");
+	rb(&stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	printf("After pa:\n");
+	pa(&stack_a, &stack_b);
+	dclst_print(stack_a);
+	dclst_print(stack_b);
+	
+
 
 	return (0);
 }

@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   push_swap.h										:+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: christophedonnat <christophedonnat@stud	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/12/11 15:20:47 by chdonnat		  #+#	#+#			 */
-/*   Updated: 2024/12/14 08:17:08 by christophed	  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/14 10:28:58 by christophed      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
@@ -49,6 +49,7 @@ void	update_previous_pointers(t_stack *head);
 void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 void	swap_non_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+int		dclst_count_nodes(t_stack *head);
 void	dclst_print(t_stack *head);
 
 // push_swap_swap.c

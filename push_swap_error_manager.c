@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   push_swap_error_manager.c						  :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: christophedonnat <christophedonnat@stud	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/12/11 15:45:45 by chdonnat		  #+#	#+#			 */
-/*   Updated: 2024/12/14 08:27:21 by christophed	  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_error_manager.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 08:59:14 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/14 08:59:17 by christophed      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"

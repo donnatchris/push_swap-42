@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   push_swap_dclst2.c								 :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: christophedonnat <christophedonnat@stud	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/12/13 12:49:00 by chdonnat		  #+#	#+#			 */
-/*   Updated: 2024/12/14 08:26:27 by christophed	  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_dclst2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/14 10:35:01 by christophed      ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -78,7 +78,16 @@ int	dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2)
 		*head = node2;
 	else if (*head == node2)
 		*head = node1;
-	if (node1->next == node2 || node2->next == node1)
+	if (node1->next == node2 && node2->next == node1)
+	{
+		node1->previous->next = node2;
+		node2->next->previous = node1;
+		node1->next = node2->next;
+		node1->previous = node2;
+		node2->next = node1;
+		node2->previous = node1->previous;
+	}
+	else if (node1->next == node2 || node2->next == node1)
 		swap_adjacent_nodes(head, node1, node2);
 	else
 		swap_non_adjacent_nodes(head, node1, node2);
@@ -86,18 +95,40 @@ int	dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2)
 	return (0);
 }
 
+// Function to count the number of nodes in the doubly circular linked list
+int	dclst_count_nodes(t_stack *head)
+{
+	t_stack	*current;
+	int		count;
+
+	count = 0;
+	if (head)
+	{
+		current = head;
+		while (current->next != head)
+		{
+			count++;
+			current = current->next;
+		}
+		count++;
+	}
+	return (count);
+}
+
 // Function to print the doubly circular linked list 
 void	dclst_print(t_stack *head)
 {
 	t_stack	*current;
 
-	if (!head)
-		return ;
-	current = head;
-	while (current->next != head)
+	if (head)
 	{
-		printf("%d\n", current->data);
-		current = current->next;
+		current = head;
+		while (current->next != head)
+		{
+			printf("%d ", current->data);
+			current = current->next;
+		}
+		printf("%d", current->data);
 	}
-	printf("%d\n", current->data);
+	printf("\n");
 }
