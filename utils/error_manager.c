@@ -6,11 +6,11 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:14 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 14:48:37 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:19:12 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
 
 // Function to check if the character is a digit
 static int	ft_isdigit(int c)

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate_function.c                          :+:      :+:    :+:   */
+/*   reverse_rotate_functions.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:29 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 15:54:16 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:18:51 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
 
 // Function to shift all the elements of stack a down by one position
 int	rra(t_stack **stack_a)

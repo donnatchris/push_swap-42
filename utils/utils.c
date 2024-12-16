@@ -6,11 +6,34 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:51 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 15:06:25 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:19:16 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
+
+// Function to load the doubly circular linked list with the input values
+t_stack	*dclst_load(char **args)
+{
+	t_stack	*head;
+	t_stack	*new;
+	long	data;
+	int		i;
+
+	head = NULL;
+	i = 0;
+	while (args[i])
+	{
+		data = ft_atoi_long(args[i]);
+		if (is_int(data) == 0 || has_double(head, (int) data) != 0)
+			return (dclst_clear(&head), NULL);
+		new = dclst_insert_node_end(&head, (int) data);
+		if (!new)
+			return (dclst_clear(&head), NULL);
+		i++;
+	}
+	return (head);
+}
 
 // Function to convert a string to a long integer
 long	ft_atoi_long(const char *nptr)

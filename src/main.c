@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 15:22:24 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:39:09 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-// Function to load the doubly circular linked list with the input values
-t_stack	*dclst_load(char **args)
-{
-	t_stack	*head;
-	t_stack	*new;
-	long	data;
-	int		i;
-
-	head = NULL;
-	i = 0;
-	while (args[i])
-	{
-		data = ft_atoi_long(args[i]);
-		if (is_int(data) == 0 || has_double(head, (int) data) != 0)
-			return (dclst_clear(&head), NULL);
-		new = dclst_insert_node_end(&head, (int) data);
-		if (!new)
-			return (dclst_clear(&head), NULL);
-		i++;
-	}
-	return (head);
-}
+#include "../include/push_swap.h"
 
 int	main(int ac, char **av)
 {
@@ -63,12 +40,12 @@ int	main(int ac, char **av)
 		return (write(2, "Error\n", 6), 2);
 		
 	// TESTS TO REMOVE BEFORE SUBMITTING
-	printf("Original list:\n");
-	dclst_print(stack_a);
+	// printf("Original list:\n");
+	// dclst_print(stack_a);
 	if (sort_stack_a(&stack_a, &stack_b) == -1)
 		return (write(2, "Error\n", 6), 2);
-	printf("Sorted list:\n");
-	dclst_print(stack_a);
+	// printf("Sorted list:\n");
+	// dclst_print(stack_a);
 	dclst_clear(&stack_a);
 	dclst_clear(&stack_b);
 

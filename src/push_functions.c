@@ -6,11 +6,11 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 15:53:38 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:18:48 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
 
 // Function to push the first element of the stack b to the stack a
 int	pa(t_stack **stack_a, t_stack **stack_b)

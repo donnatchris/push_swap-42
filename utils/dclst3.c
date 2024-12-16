@@ -6,11 +6,11 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:38:36 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 11:01:50 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:19:08 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../include/push_swap.h"
 
 // Function to update the previous pointers after having swapped 2 nodes
 static void	update_previous_pointers(t_stack *head)
