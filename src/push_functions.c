@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_push.c                                   :+:      :+:    :+:   */
+/*   push_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 08:59:25 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/14 15:53:38 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Function to push the first element of the stack b to the stack a
 int	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*new;
 
+	write(1, "pa\n", 3);
 	if (!stack_b || !(*stack_b))
 		return (-1);
 	new = dclst_insert_node_start(stack_a, (*stack_b)->data);
@@ -32,6 +33,7 @@ int	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*new;
 
+	write(1, "pb\n", 3);
 	if (!stack_a || !(*stack_a))
 		return (-1);
 	new = dclst_insert_node_start(stack_b, (*stack_a)->data);

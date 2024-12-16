@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_swap.c                                   :+:      :+:    :+:   */
+/*   swap_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 08:59:48 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/14 16:00:37 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Function to swap the first two elements of stack_a
 int	sa(t_stack **stack_a)
 {
 	int	result;
 
+	write(1, "sa\n", 3);
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return (-1);
 	result = dclst_swap_nodes(stack_a, *stack_a, (*stack_a)->next);
@@ -28,6 +29,7 @@ int	sb(t_stack **stack_b)
 {
 	int	result;
 
+	write(1, "sb\n", 3);
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return (-1);
 	result = dclst_swap_nodes(stack_b, *stack_b, (*stack_b)->next);
@@ -40,8 +42,15 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	int	result;
 
+	write(1, "ss\n", 3);
 	result = 0;
-	result += sa(stack_a);
-	result += sb(stack_b);
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		result += -1;
+	else
+		result += dclst_swap_nodes(stack_a, *stack_a, (*stack_a)->next);
+	if (!stack_b || !*stack_b || !(*stack_b)->next)
+		result += -1;
+	else
+		result += dclst_swap_nodes(stack_b, *stack_b, (*stack_b)->next);
 	return (result);
 }

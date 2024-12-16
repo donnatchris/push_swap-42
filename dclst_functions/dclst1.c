@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_dclst1.c                                 :+:      :+:    :+:   */
+/*   dclst1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:58:54 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 09:57:33 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/14 11:01:39 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Function to create a new node in the doubly circular linked list
 t_stack	*dclst_create_node(int data)
