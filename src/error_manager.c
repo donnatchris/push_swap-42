@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:14 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/14 11:16:40 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 14:48:37 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static int	ft_isdigit(int c)
 }
 
 // Function to check if the input is valid
-int	check_input(char **array, int ac)
+int	check_input(char **args)
 {
 	int		i;
 	char	*str;
 
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (args[i])
 	{
-		str = array[i];
+		str = args[i];
 		if (str == NULL)
 			return (-1);
 		while (*str == 32 || (*str >= 9 && *str <= 13))

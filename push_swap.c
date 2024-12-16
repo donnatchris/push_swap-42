@@ -6,14 +6,14 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 11:29:22 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 15:22:24 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Function to load the doubly circular linked list with the input values
-t_stack	*dclst_load(char **av, int ac)
+t_stack	*dclst_load(char **args)
 {
 	t_stack	*head;
 	t_stack	*new;
@@ -21,10 +21,10 @@ t_stack	*dclst_load(char **av, int ac)
 	int		i;
 
 	head = NULL;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (args[i])
 	{
-		data = ft_atoi_long(av[i]);
+		data = ft_atoi_long(args[i]);
 		if (is_int(data) == 0 || has_double(head, (int) data) != 0)
 			return (dclst_clear(&head), NULL);
 		new = dclst_insert_node_end(&head, (int) data);
@@ -39,20 +39,26 @@ int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char	**args;
+	int		i;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
 		return (0);
-	if (check_input(av, ac) == -1)
+	else if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = av + 1;
+	if (check_input(args) == -1)
 		return (write(2, "Error\n", 6), 2);
+	stack_a = dclst_load(args);
 	if (ac == 2)
 	{
-		if (is_int(ft_atoi_long(av[1])) == 0)
-			return (write(2, "Error\n", 6), 2);
-		return (0);
+		i = 0;
+		while(args[i])
+			free(args[i++]);
 	}
-	stack_a = dclst_load(av, ac);
 	if (stack_a == NULL)
 		return (write(2, "Error\n", 6), 2);
 		
