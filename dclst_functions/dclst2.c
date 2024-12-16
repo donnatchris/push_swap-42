@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 10:59:58 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 12:27:46 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,25 @@ t_stack	*dclst_find_min(t_stack *head)
 	if (current->data < min->data)
 		min = current;
 	return (min);
+}
+
+// Function to find the position of a node in the doubly circular linked list
+// Returns the position of the node in the list or -1 if the node is not in the list
+int	dclst_find_node_position(t_stack *head, t_stack *node)
+{
+	t_stack	*current;
+	int		position;
+
+	if (!head || !node)
+		return (-1);
+	current = head;
+	position = 1;
+	while (current != node)
+	{
+		position++;
+		current = current->next;
+		if (current == head)
+			return (-1);
+	}
+	return (position);
 }

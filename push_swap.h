@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 11:27:03 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 12:27:30 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	dclst_clear(t_stack **head);
 int		dclst_count_nodes(t_stack *head);
 void	dclst_print(t_stack *head);
 t_stack	*dclst_find_min(t_stack *head);
+int		dclst_find_node_position(t_stack *head, t_stack *node);
 
 // dclst_functions/dclst3.c
 static void	update_previous_pointers(t_stack *head);
@@ -76,7 +77,6 @@ int		rrb(t_stack **stack_b);
 int		rrr(t_stack **stack_a, t_stack **stack_b);
 
 // src/sort_functions.c
-int		is_reverse_sorted(t_stack *stack);
 int		is_sorted(t_stack *stack);
 int		push_all_b_to_a(t_stack **stack_a, t_stack **stack_b);
 int		put_min_top(t_stack **stack_a);
