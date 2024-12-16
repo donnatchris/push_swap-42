@@ -6,7 +6,7 @@
 #    By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 16:21:20 by christophed       #+#    #+#              #
-#    Updated: 2024/12/16 16:23:38 by christophed      ###   ########.fr        #
+#    Updated: 2024/12/16 16:44:38 by christophed      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,23 @@ SRC_DIR = src
 UTILS_DIR = utils
 OBJ_DIR = obj
 INC_DIR = include
-LIB_DIR = lib
+LIBFT_DIR = libft
 
 # Fichiers source et objets
 SRCS = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(UTILS_DIR)/*.c)
 OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
 
 # Options de compilation
-CFLAGS = -Wall -Wextra -I$(INC_DIR)
+CFLAGS = -Wall -Wextra -I$(INC_DIR) -I$(LIBFT_DIR)/include
 
 # Options de l'éditeur de liens
-LDFLAGS = -L$(LIB_DIR)
+LDFLAGS = -L$(LIBFT_DIR) -lft
 
 # Règle par défaut
 all: $(TARGET)
 
 # Règle pour créer l'exécutable
-$(TARGET): $(OBJS)
+$(TARGET): $(OBJS) $(LIBFT_DIR)/libft.a
     @mkdir -p $(dir $@)
     $(CC) $(OBJS) -o $@ $(LDFLAGS)
 
@@ -47,13 +47,19 @@ $(OBJ_DIR)/%.o: $(UTILS_DIR)/%.c
     @mkdir -p $(dir $@)
     $(CC) $(CFLAGS) -c $< -o $@
 
+# Règle pour compiler libft
+$(LIBFT_DIR)/libft.a:
+    $(MAKE) -C $(LIBFT_DIR)
+
 # Règle pour nettoyer les fichiers générés
 clean:
-    rm -rf $(OBJ_DIR) $(TARGET)
+    rm -rf $(OBJ_DIR)
+    $(MAKE) -C $(LIBFT_DIR) clean
 
 # Règle pour nettoyer tout
 fclean: clean
     rm -rf $(TARGET)
+    $(MAKE) -C $(LIBFT_DIR) fclean
 
 # Règle pour recompiler tout
 re: fclean all
