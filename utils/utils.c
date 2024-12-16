@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:51 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:19:16 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 20:41:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ size_t	ft_cpy_len(char const *s, unsigned int start, size_t len)
 {
 	size_t	cpy_len;
 
-	if (start + len > ft_strlen(s))
+	if (start + len > (unsigned int) ft_strlen(s))
 		cpy_len = ft_strlen(s) - start;
 	else
 		cpy_len = len;
@@ -79,7 +79,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	cpy_len;
 
-	if (start >= ft_strlen(s))
+	if (start >= (unsigned int) ft_strlen(s))
 	{
 		cpy = (char *) malloc(sizeof(char));
 		if (cpy == NULL)

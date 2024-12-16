@@ -6,7 +6,7 @@
 #    By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 16:21:20 by christophed       #+#    #+#              #
-#    Updated: 2024/12/16 16:44:38 by christophed      ###   ########.fr        #
+#    Updated: 2024/12/16 18:31:09 by christophed      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,31 +35,31 @@ all: $(TARGET)
 
 # Règle pour créer l'exécutable
 $(TARGET): $(OBJS) $(LIBFT_DIR)/libft.a
-    @mkdir -p $(dir $@)
-    $(CC) $(OBJS) -o $@ $(LDFLAGS)
+	@mkdir -p $(dir $@)
+	$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
 # Règle pour créer les fichiers objets
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-    @mkdir -p $(dir $@)
-    $(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(UTILS_DIR)/%.c
-    @mkdir -p $(dir $@)
-    $(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Règle pour compiler libft
 $(LIBFT_DIR)/libft.a:
-    $(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 # Règle pour nettoyer les fichiers générés
 clean:
-    rm -rf $(OBJ_DIR)
-    $(MAKE) -C $(LIBFT_DIR) clean
+	rm -rf $(OBJ_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 # Règle pour nettoyer tout
 fclean: clean
-    rm -rf $(TARGET)
-    $(MAKE) -C $(LIBFT_DIR) fclean
+	rm -rf $(TARGET)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 # Règle pour recompiler tout
 re: fclean all

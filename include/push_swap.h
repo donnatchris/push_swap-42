@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:40:05 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 20:30:56 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	dclst_print(t_stack *head);
 t_stack	*dclst_find_min(t_stack *head);
 int		dclst_find_node_position(t_stack *head, t_stack *node);
 // utils/dclst3.c
-static void	update_previous_pointers(t_stack *head);
-static void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
-static void	swap_non_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+// static void	update_previous_pointers(t_stack *head);
+// static void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+// static void	swap_non_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 int			dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // src/error_manager.c
 int		check_input(char **args);

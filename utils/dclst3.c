@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:38:36 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:19:08 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/16 20:36:30 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	update_previous_pointers(t_stack *head)
 }
 
 // Function to swap 2 adjacent nodes in the doubly circular linked list
-static void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2)
+static void	swap_adjacent_nodes(t_stack *node1, t_stack *node2)
 {
 	if (node1->next == node2)
 	{
@@ -52,7 +52,7 @@ static void	swap_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2)
 }
 
 // Function to swap 2 non adjacent nodes in the doubly circular linked list
-static void	swap_non_adjacent_nodes(t_stack **head, t_stack *node1, t_stack *node2)
+static void	swap_non_adjacent_nodes(t_stack *node1, t_stack *node2)
 {
 	t_stack	*temp_next;
 	t_stack	*temp_previous;
@@ -88,9 +88,9 @@ int	dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2)
 		node2->previous = node1->previous;
 	}
 	else if (node1->next == node2 || node2->next == node1)
-		swap_adjacent_nodes(head, node1, node2);
+		swap_adjacent_nodes(node1, node2);
 	else
-		swap_non_adjacent_nodes(head, node1, node2);
+		swap_non_adjacent_nodes(node1, node2);
 	update_previous_pointers(*head);
 	return (0);
 }
