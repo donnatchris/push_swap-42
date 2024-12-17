@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_functions.c                                   :+:      :+:    :+:   */
+/*   sort_by_selection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 20:37:03 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/17 08:59:45 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	put_min_on_top(t_stack **stack_a)
 
 // Function to sort the stack a from the smallest to the biggest number
 // by using the stack b and the instructions
-int	sort_stack_a(t_stack **stack_a, t_stack **stack_b)
+int	sort_by_selection(t_stack **stack_a, t_stack **stack_b)
 {
 	while (*stack_a || (!is_sorted(*stack_a) && *stack_b))
 	{

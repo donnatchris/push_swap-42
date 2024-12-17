@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:39:09 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/17 09:02:55 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ int	main(int ac, char **av)
 		return (write(2, "Error\n", 6), 2);
 		
 	// TESTS TO REMOVE BEFORE SUBMITTING
-	// printf("Original list:\n");
-	// dclst_print(stack_a);
-	if (sort_stack_a(&stack_a, &stack_b) == -1)
+	if (quicksort(&stack_a, &stack_b) == -1)
 		return (write(2, "Error\n", 6), 2);
-	// printf("Sorted list:\n");
-	// dclst_print(stack_a);
+	// if (sort_by_selection(&stack_a, &stack_b) == -1)
+	// 	return (write(2, "Error\n", 6), 2);
+	printf("Sorted list:\n");
+	dclst_print(stack_a);
+	dclst_print(stack_b);
 	dclst_clear(&stack_a);
 	dclst_clear(&stack_b);
 
