@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 09:06:01 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/17 15:01:22 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/17 22:04:26 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,27 +89,6 @@ void	sort_3(t_stack **stack)
 	}
 }
 
-// Function to sort a stack with 2 or less elements
-int	sort_2_or_less(t_stack **stack)
-{
-	int	count;
-	
-	printf("demi-liste: ");
-	dclst_print(*stack);
-	printf("sort_2_or_less\n");
-	count = dclst_count_nodes(*stack);
-	if (count <= 1)
-		return (0);
-	else if (count == 2)
-	{
-		if ((*stack)->data > (*stack)->next->data)
-			sa(stack);
-	}
-	// else
-	// 	return (-1);
-	return (0);
-}
-
 // Function to sort the stack_b recursively
 int	sort_b_by_pivot(t_stack **stack_a, t_stack **stack_b, int count)
 {
@@ -121,29 +100,46 @@ int	sort_b_by_pivot(t_stack **stack_a, t_stack **stack_b, int count)
 	dclst_print(*stack_a);
 	printf("liste b :");
 	dclst_print(*stack_b);
-	printf("sort_b_by_pivot\n");
-	if (count <= 2)
-		return (sort_2_or_less(stack_b));
-	pivot = choose_pivot(*stack_b, count);
-	printf("PIVOT: %d\n", pivot);
-	i = 0;
+	printf("SORT B BY PIVOT\n");
 	pushed = 0;
-	while (i < count)
+	if (count < 3)
 	{
-		if ((*stack_b)->data < pivot)
-		{
-			if (pa(stack_a, stack_b) < 0)
-				return (-1);
-			pushed++;
-		}
-		else
-			rb(stack_b);
-		i++;
+		printf("COUNT B <= 2\n");
+		if ((*stack_b)->data > (*stack_b)->next->data)
+			sb(stack_b);
 	}
-	if (sort_a_by_pivot(stack_a, stack_b, pushed) < 0)
-		return (-1);
-	if (sort_b_by_pivot(stack_a, stack_b, count - pushed) < 0)
-		return (-1);
+	if (count > 2)
+	{
+		pivot = choose_pivot(*stack_b, count);
+		printf("COUNT B > 2 PIVOT: %d\n", pivot);
+		i = 0;
+		while (i < count)
+		{
+			if ((*stack_b)->data < pivot)
+			{
+				if (pa(stack_a, stack_b) < 0)
+					return (-1);
+				pushed++;
+			}
+			else
+				if (i != count - 1)
+					rb(stack_b);
+			i++;
+		}
+		printf("PUSHED FROM B TO A: %d\n", pushed);
+		if (sort_a_by_pivot(stack_a, stack_b, pushed) < 0)
+			return (-1);
+		i = 0;
+		while (i < pushed)
+		{
+			if (sort_a_by_pivot(stack_a, stack_b, pushed) < 0)
+				return (-1);
+			printf("RETURN B TO A: PUSHED %d\n", pushed);
+			if (pb(stack_a, stack_b) < 0)
+				return (-1);
+			i++;
+		}
+	}
 	return (0);
 }
 
@@ -158,29 +154,44 @@ int	sort_a_by_pivot(t_stack **stack_a, t_stack **stack_b, int count)
 	dclst_print(*stack_a);
 	printf("liste b :");
 	dclst_print(*stack_b);
-	printf("sort_a_by_pivot\n");
-	if (count <= 2)
-		return (sort_2_or_less(stack_a));
-	pivot = choose_pivot(*stack_a, count);
-	printf("PIVOT: %d\n", pivot);
-	i = 0;
+	printf("SORT A BY PIVOT\n");
 	pushed = 0;
-	while (i < count)
+	if (count < 3)
 	{
-		if ((*stack_a)->data < pivot)
-		{
-			if (pb(stack_a, stack_b) < 0)
-				return (-1);
-			pushed++;
-		}
-		else
-			ra(stack_a);
-		i++;
+		printf("COUNT A <= 2\n");
+		if ((*stack_a)->data > (*stack_a)->next->data)
+			sa(stack_a);
 	}
-	if (sort_b_by_pivot(stack_a, stack_b, pushed) < 0)
-		return (-1);
-	if (sort_a_by_pivot(stack_a, stack_b, count - pushed) < 0)
-		return (-1);
+	else
+	{
+		pivot = choose_pivot(*stack_a, count);
+		printf("COUNT A > 2 PIVOT: %d\n", pivot);
+		i = 0;
+		while (i < count)
+		{
+			if ((*stack_a)->data < pivot)
+			{
+				if (pb(stack_a, stack_b) < 0)
+					return (-1);
+				pushed++;
+			}
+			else
+				if(i != count - 1)
+					ra(stack_a);
+			i++;
+		}
+		printf("PUSHED FROM A TO B: %d\n", pushed);
+		if (sort_b_by_pivot(stack_a, stack_b, pushed) < 0)
+			return (-1);
+		i = 0;
+		while (i < pushed)
+		{
+			printf("RETURN A FROM B: PUSHED %d\n", pushed);
+			if (pa(stack_a, stack_b) < 0)
+				return (-1);
+			i++;
+		}
+	}
 	return (0);
 }
 
