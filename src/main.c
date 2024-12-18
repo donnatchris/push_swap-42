@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/17 09:02:55 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/18 22:54:51 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,119 +36,7 @@ int	main(int ac, char **av)
 		while(args[i])
 			free(args[i++]);
 	}
-	if (stack_a == NULL)
+	if (stack_a == NULL || push_swap(&stack_a, &stack_b) < 0)
 		return (write(2, "Error\n", 6), 2);
-		
-	// TESTS TO REMOVE BEFORE SUBMITTING
-	if (quicksort(&stack_a, &stack_b) == -1)
-		return (write(2, "Error\n", 6), 2);
-	// if (sort_by_selection(&stack_a, &stack_b) == -1)
-	// 	return (write(2, "Error\n", 6), 2);
-	printf("Sorted list:\n");
-	dclst_print(stack_a);
-	dclst_print(stack_b);
-	dclst_clear(&stack_a);
-	dclst_clear(&stack_b);
-
-	// printf("Switch 3 and 5\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next, stack_a->next->next->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 5 and 3\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next->next->next, stack_a->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 1 and 2\n");
-	// dclst_swap_nodes(&stack_a, stack_a, stack_a->next);
-	// dclst_print(stack_a);
-	// printf("Switch 2 and 1\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next, stack_a);
-	// dclst_print(stack_a);
-	// printf("Switch 1 and 5\n");
-	// dclst_swap_nodes(&stack_a, stack_a, stack_a->next->next->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 5 and 1\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next->next->next, stack_a);
-	// dclst_print(stack_a);
-	// printf("Switch 4 and 5\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next->next, stack_a->next->next->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 5 and 4\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next->next->next, stack_a->next->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 1 and 2\n");
-	// dclst_swap_nodes(&stack_a, stack_a, stack_a->next);
-	// dclst_print(stack_a);
-	// printf("Switch 2 and 1\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next, stack_a);
-	// dclst_print(stack_a);
-	// printf("Switch 1 and 4\n");
-	// dclst_swap_nodes(&stack_a, stack_a, stack_a->next->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 4 and 1\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next->next, stack_a);
-	// dclst_print(stack_a);
-	// printf("Switch 1 and 3\n");
-	// dclst_swap_nodes(&stack_a, stack_a, stack_a->next->next);
-	// dclst_print(stack_a);
-	// printf("Switch 3 and 1\n");
-	// dclst_swap_nodes(&stack_a, stack_a->next->next, stack_a);
-	// dclst_print(stack_a);
-	// printf("After sa:\n");
-	// sa(&stack_a);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After sa:\n");
-	// sa(&stack_a);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After rra:\n");
-	// rra(&stack_a);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After ra:\n");
-	// ra(&stack_a);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After pb:\n");
-	// pb(&stack_a, &stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After pb:\n");
-	// pb(&stack_a, &stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After sb:\n");
-	// sb(&stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After sb:\n");
-	// sb(&stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After rrb:\n");
-	// rrb(&stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After rb:\n");
-	// rb(&stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("After pa:\n");
-	// pa(&stack_a, &stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("Remove node 2 in stack_a:\n");
-	// dclst_remove_node(&stack_a, stack_a->next);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("Remove node 1 in stack_a:\n");
-	// dclst_remove_node(&stack_a, stack_a);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-	// printf("Remove node 1 in stack_b:\n");
-	// dclst_remove_node(&stack_b, stack_b);
-	// dclst_print(stack_a);
-	// dclst_print(stack_b);
-
-
 	return (0);
 }

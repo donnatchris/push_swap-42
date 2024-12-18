@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:19:06 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/18 21:19:39 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,45 @@ void	dclst_print(t_stack *head)
 	printf("\n");
 }
 
-// Function to find the minimum value in the doubly circular linked list
-t_stack	*dclst_find_min(t_stack *head)
+// Function to find the lowest value in the doubly circular linked list
+t_stack	*dclst_find_min(t_stack *node, int len)
 {
-	t_stack	*current;
 	t_stack	*min;
 
-	if (!head)
+	if (!node)
 		return (NULL);
-	current = head;
-	min = current;
-	while (current->next != head)
+	min = node;
+	while (len > 0)
 	{
-		if (current->data < min->data)
-			min = current;
-		current = current->next;
+		if (node->data < min->data)
+			min = node;
+		node = node->next;
+		len--;
 	}
-	if (current->data < min->data)
-		min = current;
 	return (min);
+}
+
+// Function to find the highest value in the doubly circular linked list
+t_stack	*dclst_find_max(t_stack *node, int len)
+{
+	t_stack	*max;
+
+	if (!node)
+		return (NULL);
+	max = node;
+	while (len > 0)
+	{
+		if (node->data > max->data)
+			max = node;
+		node = node->next;
+		len--;
+	}
+	return (max);
 }
 
 // Function to find the position of a node in the doubly circular linked list
 // Returns the position of the node in the list or -1 if the node is not in the list
-int	dclst_find_node_position(t_stack *head, t_stack *node)
+int	dclst_find_node_pos(t_stack *head, t_stack *node)
 {
 	t_stack	*current;
 	int		position;
@@ -81,7 +96,7 @@ int	dclst_find_node_position(t_stack *head, t_stack *node)
 	if (!head || !node)
 		return (-1);
 	current = head;
-	position = 1;
+	position = 0;
 	while (current != node)
 	{
 		position++;
@@ -90,4 +105,22 @@ int	dclst_find_node_position(t_stack *head, t_stack *node)
 			return (-1);
 	}
 	return (position);
+}
+
+// Function to find a node by its position in the doubly circular linked list
+t_stack	*dclst_find_node_with_pos(t_stack *head, int position)
+{
+	t_stack	*current;
+	int		i;
+
+	if (!head)
+		return (NULL);
+	current = head;
+	i = 0;
+	while (i < position)
+	{
+		current = current->next;
+		i++;
+	}
+	return (current);
 }

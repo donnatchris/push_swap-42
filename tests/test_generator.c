@@ -6,11 +6,11 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:02:03 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 15:47:45 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/18 22:58:58 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Program to genarate random numbers separated by space without doubles
+// Program to generate random numbers separated by space without doubles
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

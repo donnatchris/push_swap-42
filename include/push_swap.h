@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/17 14:56:53 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/19 00:26:36 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,15 @@ int		rrr(t_stack **stack_a, t_stack **stack_b);
 int		ra(t_stack **stack_a);
 int		rb(t_stack **stack_b);
 int		rr(t_stack **stack_a, t_stack **stack_b);
-// src/sort_by_selection.c
+// src/sort_in_V.c
+int		push_swap(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack);
-int		push_all_b_to_a(t_stack **stack_a, t_stack **stack_b);
-int		put_min_top(t_stack **stack_a);
-int		sort_by_selection(t_stack **stack_a, t_stack **stack_b);
-// src/quicksort.c
-t_stack	*dclst_find_node(t_stack *head, int position);
-int		choose_pivot(t_stack *stack_a, int count);
-int		sort_2_or_less(t_stack **stack);
-int		sort_a_by_pivot(t_stack **stack_a, t_stack **stack_b, int count);
-int		sort_b_by_pivot(t_stack **stack_a, t_stack **stack_b, int count);
-int		quicksort(t_stack **stack_a, t_stack **stack_b);
+void	sort_3_or_less(t_stack **stack);
+// src/sort_by_pivot.c
+t_stack	*find_pivot(t_stack *head, int len);
+t_stack	*find_next_higher(t_stack *head, t_stack *node);
+int		sort_by_pivot(t_stack **a, t_stack **b, int len);
+int	put_node_on_top_a(t_stack **a, t_stack **b, t_stack *node, int treshold);
 
 
 // UTILS DIRECTORY
@@ -67,8 +64,10 @@ void	dclst_clear(t_stack **head);
 // utils/dclst2.c
 int		dclst_count_nodes(t_stack *head);
 void	dclst_print(t_stack *head);
-t_stack	*dclst_find_min(t_stack *head);
-int		dclst_find_node_position(t_stack *head, t_stack *node);
+t_stack	*dclst_find_min(t_stack *node, int len);
+t_stack	*dclst_find_max(t_stack *node, int len);
+int		dclst_find_node_pos(t_stack *head, t_stack *node);
+t_stack	*dclst_find_node_with_pos(t_stack *head, int pos);
 // utils/dclst3.c
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // src/error_manager.c
