@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 11:17:46 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 15:57:19 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		push_swap(t_stack **a, t_stack **b);
 // src/sort_utils.c
 int		is_sorted(t_stack *stack);
-int		sort_2(t_stack **a, t_stack **b);
+int		sort_2a(t_stack **a);
+int		sort_2b(t_stack **b);
 int		sort_3_or_less(t_stack **stack);
 
 // UTILS DIRECTORY

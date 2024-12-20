@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 11:22:21 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 15:57:01 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,24 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-// Function to sort the 2 elements at the top of a stack
-int	sort_2(t_stack **a, t_stack **b)
+// Function to sort the 2 elements at the top of a stack a
+int	sort_2a(t_stack **a)
 {
-	if (a == NULL && b && *b)
-	{
-		if ((*b)->data > (*b)->next->data)
-			sb(b);
-		return (0);
-	}
-	if (b == NULL && a && *a)
-	{
-		if ((*a)->data > (*b)->next->data)
-			sa(a);
-		return (0);
-	}
-	else
+	if (!a || !*a)
 		return (-1);
+	if ((*a)->data > (*a)->next->data)
+		sa(a);
+	return (0);
+}
+
+// Function to sort the 2 elements at the top of a stack b
+int	sort_2b(t_stack **b)
+{
+	if (!b || !*b)
+		return (-1);
+	if ((*b)->data > (*b)->next->data)
+		sb(b);
+	return (0);
 }
 
 // Function to sort a stack with 3 or less elements

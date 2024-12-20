@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 15:07:19 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 16:28:26 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ int	pivot_value(t_stack *head, int len)
 // Function to push all values below treshold to b
 int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
-	printf("BEFORE DIVIDE A BY TRESHOLD\n");
-	dclst_print(*a);
-	dclst_print(*b);
 	int		pushed;
 
 	if (!a || !*a)
@@ -77,9 +74,6 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to push all values below treshold to a
 int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
-	printf("BEFORE DIVIDE B BY TRESHOLD\n");
-	dclst_print(*a);
-	dclst_print(*b);
 	int		pushed;
 	int		set_aside;
 
@@ -114,7 +108,7 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to sort the remainder in stack_a
 int	sort_a(t_stack **a, t_stack **b, int len)
 {
-	printf("BEFORE SORT A\n");
+	printf("*****\nBEFORE SORT A\n*****\n");
 	dclst_print(*a);
 	dclst_print(*b);
 	int		treshold;
@@ -124,16 +118,31 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 		return (-1);
 	if (len == 1)
 		return (0);
-	if (len == 2)
-		return (sort_2(a, NULL));
 	treshold = pivot_value(*a, len);
+	printf("TRESHOLD = %d\n", treshold);
 	if (treshold == -2147483648)
 		return (-1);
 	pushed = divide_a_by_treshold(a, b, len, treshold);
 	if (pushed < 0)
 		return (-1);
+	printf("PUSHED = %d\n", pushed);
+	len = len / 2 + len % 2;
+	printf("NEW LEN = %d\n", len);
+	if (len >2)
+	{
+		printf("OUVRE LA BOUCLE RECURSIVE A\n");
+		if (sort_a(a, b, len) < 0)
+			return (-1);
+	}
+	else if (len == 2)
+	{
+		printf("SORT 2A\n");
+		if (sort_2a(a) < 0)
+			return (-1);
+	}
 	if (pushed > 0)
 	{
+		printf("OUVRE SORT B DEPUIS SORT A\n");
 		if (sort_b(a, b, pushed) < 0)
 			return (-1);
 	}
@@ -143,7 +152,7 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 // Function to sort the remainder in stack_b
 int	sort_b(t_stack **a, t_stack **b, int len)
 {
-	printf("BEFORE SORT B\n");
+	printf("*****\nBEFORE SORT B\n*****\n");
 	dclst_print(*a);
 	dclst_print(*b);
 	int		treshold;
@@ -151,44 +160,37 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 
 	if (!b || !*b || len < 1)
 		return (-1);
-	if (len == 1)
-		return (0);
-	if (len == 2)
-		return (sort_2(NULL, b));
-	treshold = pivot_value(*b, len);
-	if (treshold == -2147483648)
-		return (-1);
-	pushed = divide_b_by_treshold(a, b, len, treshold);
-	if (pushed < 0)
-		return (-1);
+	if (len > 2)
+	{
+		treshold = pivot_value(*b, len);
+		printf("TRESHOLD = %d\n", treshold);
+		if (treshold == -2147483648)
+			return (-1);
+		pushed = divide_b_by_treshold(a, b, len, treshold);
+		printf("PUSHED = %d\n", pushed);
+		if (pushed < 0)
+			return (-1);
+		len = len / 2;
+		printf("NEW LEN = %d\n", len);
+	}
+	if (len > 2)
+	{
+		printf("OUVRE LA BOUCLE RECURSIVE B\n");
+		if (sort_b(a, b, len) < 0)
+			return (-1);
+	}
+	else if (len == 2)
+	{
+		printf("SORT 2B\n");
+		if (sort_2b(b) < 0)
+			return (-1);
+	}
 	if (pushed > 0)
 	{
+		printf("OUVRE SORT A DEPUIS SORT B\n");
 		if (sort_a(a, b, pushed) < 0)
 			return (-1);
 	}
-	return (0);
-}
-
-// Function to make the first sort of the stack_a
-int	first_sort_a(t_stack **a, t_stack **b, int len)
-{
-	printf("BEFORE FIRST SORT A\n");
-	dclst_print(*a);
-	dclst_print(*b);
-	int		treshold;
-	int		pushed;
-
-	treshold = pivot_value(*a, len);
-	if (treshold == -2147483648)
-		return (-1);
-	pushed = divide_a_by_treshold(a, b, len, treshold);
-	if (pushed < 0)
-		return (-1);
-	if (sort_b(a, b, pushed) < 0)
-		return (-1);
-	printf("AFTER FIRST SORT A\n");
-	dclst_print(*a);
-	dclst_print(*b);
 	return (0);
 }
 
@@ -202,7 +204,7 @@ int	push_swap(t_stack **a, t_stack **b)
 	len = dclst_count_nodes(*a);
 	if (len <= 3)
 		return (dclst_clear(a), sort_3_or_less(a));
-	if (first_sort_a(a, b, len) < 0)
+	if (sort_a(a, b, len) < 0)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a))
 		write(1, "Sort has failed\n", 16);
