@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 23:01:10 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 23:27:53 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // Function to find the median value in the stack
 int	pivot_value(t_stack *head, int len)
 {
+	// printf("PIVOT VALUE\n");
 	t_stack	*current;
 	t_stack *pivot;
 	int		n_inferior_values;
@@ -50,6 +51,7 @@ int	pivot_value(t_stack *head, int len)
 // Function to push all values below treshold to b
 int	divide_first_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
+	// printf("DIVIDE FIRST A BY TRESHOLD\n");
 	int		pushed;
 
 	if (!a || !*a)
@@ -70,10 +72,10 @@ int	divide_first_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	return (pushed);
 }
 
-
 // Function to push all values below treshold to b
 int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
+	// printf("DIVIDE A BY TRESHOLD\n");
 	int		pushed;
 	int		set_aside;
 
@@ -98,7 +100,6 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	}
 	while (set_aside > 0)
 	{
-		printf("RRA Dans divide a by treshold\n");
 		if (rra(a) < 0)
 			return (-1);
 		set_aside--;
@@ -109,6 +110,7 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to push all values below treshold to a
 int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
+	// printf("DIVIDE B BY TRESHOLD\n");
 	int		pushed;
 	int		set_aside;
 
@@ -143,7 +145,7 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to get back the values from stack_a to stack_b
 int	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
-	printf("GET BACK TO B: %d\n", len);
+	// printf("GET BACK TO B\n");
 	int		pushed;
 
 	if (!a || !*a)
@@ -161,7 +163,7 @@ int	get_back_to_b(t_stack **a, t_stack **b, int len)
 // Function to get back the values from stack_b to stack_a
 int	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
-	printf("GET BACK TO A: %d\n", len);
+	// printf("GET BACK TO A\n");
 	int		pushed;
 
 	if (!b || !*b)
@@ -179,9 +181,7 @@ int	get_back_to_a(t_stack **a, t_stack **b, int len)
 // Function to sort the remainder in stack_b
 int	sort_b(t_stack **a, t_stack **b, int len)
 {
-	printf("\n\nSORT B : %d\n\n", len);
-	dclst_print(*a);
-	dclst_print(*b);
+	// printf("SORT B\n");
 	int		treshold;
 	int		pushed;
 
@@ -191,12 +191,9 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 	{
 		if (len == 2)
 		{
-			printf("B <= 2\n");
-			printf("SORT 2B\n");
 			if (sort_2b(b) < 0)
 				return (-1);
 		}
-		printf("SORT B ");
 		if (get_back_to_a(a, b, len) < 0)
 			return (-1);
 	}
@@ -207,17 +204,14 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 		if (treshold == -2147483648)
 			return (-1);
 		pushed = divide_b_by_treshold(a, b, len, treshold);
-		printf("PUSHED = %d\n", pushed);
 		if (pushed < 0)
 			return (-1);
 		if (pushed > 0)
 		{
-			printf("OUVRE SORT A DEPUIS SORT B\n");
 			if (sort_a(a, b, pushed) < 0)
 				return (-1);
 		}
 		len = len / 2;
-			printf("OUVRE LA BOUCLE RECURSIVE B\n");
 			if (sort_b(a, b, len) < 0)
 				return (-1);
 	}
@@ -227,9 +221,7 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 // Function to sort the remainder in stack_a
 int	sort_a(t_stack **a, t_stack **b, int len)
 {
-	printf("\n\nSORT A : %d\n\n", len);
-	dclst_print(*a);
-	dclst_print(*b);
+	// printf("SORT A\n");
 	int		treshold;
 	int		pushed;
 
@@ -239,8 +231,6 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 	{
 		if (len == 2)
 		{
-			printf("A <= 2\n");
-			printf("SORT 2A\n");
 			if (sort_2a(a) < 0)
 				return (-1);
 		}
@@ -254,17 +244,14 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 		pushed = divide_a_by_treshold(a, b, len, treshold);
 		if (pushed < 0)
 			return (-1);
-		printf("PUSHED = %d\n", pushed);
 		len = len / 2 + len % 2;
 		if (len > 1)
 			{
-				printf("OUVRE LA BOUCLE RECURSIVE A\n");
 				if (sort_a(a, b, len) < 0)
 					return (-1);
 			}
 		if (pushed > 0)
 		{
-			printf("OUVRE SORT B DEPUIS SORT A\n");
 			if (sort_b(a, b, pushed) < 0)
 				return (-1);
 		}
@@ -275,9 +262,7 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 // Function to sort stack_a
 int	first_sort_a(t_stack **a, t_stack **b, int len)
 {
-	printf("\n\nFIRST SORT A : %d\n\n", len);
-	dclst_print(*a);
-	dclst_print(*b);
+	// printf("FIRST SORT A\n");
 	int		treshold;
 	int		pushed;
 
@@ -287,8 +272,6 @@ int	first_sort_a(t_stack **a, t_stack **b, int len)
 	{
 		if (len == 2)
 		{
-			printf("FIRST A <= 2\n");
-			printf("FIRST SORT 2A\n");
 			if (sort_2a(a) < 0)
 				return (-1);
 		}
@@ -302,17 +285,14 @@ int	first_sort_a(t_stack **a, t_stack **b, int len)
 		pushed = divide_first_a_by_treshold(a, b, len, treshold);
 		if (pushed < 0)
 			return (-1);
-		printf("PUSHED = %d\n", pushed);
 		len = len / 2 + len % 2;
 		if (len > 1)
 			{
-				printf("OUVRE LA BOUCLE RECURSIVE FIRST A\n");
 				if (sort_a(a, b, len) < 0)
 					return (-1);
 			}
 		if (pushed > 0)
 		{
-			printf("OUVRE SORT B DEPUIS FIRST SORT A\n");
 			if (sort_b(a, b, pushed) < 0)
 				return (-1);
 		}
@@ -334,10 +314,10 @@ int	push_swap(t_stack **a, t_stack **b)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a))
 		write(1, "Sort has failed\n", 16);
-	printf("SORT REUSSI\n");
-	printf("STACK A\n");
-	dclst_print(*a);
-	printf("STACK B\n");
-	dclst_print(*b);
+	// printf("SORT REUSSI\n");
+	// printf("STACK A\n");
+	// dclst_print(*a);
+	// printf("STACK B\n");
+	// dclst_print(*b);
 	return (dclst_clear(a), dclst_clear(b), 0);	
 }

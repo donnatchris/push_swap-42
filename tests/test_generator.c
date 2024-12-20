@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:02:03 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/18 22:58:58 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 23:29:35 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	int		j;
 
 	srand(time(NULL));
-	n = 100;
+	n = 500;
 	arr = (int *)malloc(sizeof(int) * n);
 	if (!arr)
 		return (1);
