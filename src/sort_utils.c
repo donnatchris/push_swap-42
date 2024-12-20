@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 16:47:14 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 17:15:41 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	is_sorted(t_stack *stack)
 // Function to sort the 2 elements at the top of a stack a
 int	sort_2a(t_stack **a)
 {
+	printf("SORT 2-A\n");
 	if (!a || !*a)
 		return (-1);
 	if ((*a)->data > (*a)->next->data)
@@ -40,6 +41,7 @@ int	sort_2a(t_stack **a)
 // Function to sort the 2 elements at the top of a stack b
 int	sort_2b(t_stack **b)
 {
+	printf("SORT 2-B\n");
 	if (!b || !*b)
 		return (-1);
 	if ((*b)->data < (*b)->next->data)
