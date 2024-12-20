@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/18 21:19:39 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/19 16:13:18 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,40 +50,48 @@ void	dclst_print(t_stack *head)
 	printf("\n");
 }
 
-// Function to find the lowest value in the doubly circular linked list
-t_stack	*dclst_find_min(t_stack *node, int len)
-{
-	t_stack	*min;
-
-	if (!node)
-		return (NULL);
-	min = node;
-	while (len > 0)
-	{
-		if (node->data < min->data)
-			min = node;
-		node = node->next;
-		len--;
-	}
-	return (min);
-}
-
 // Function to find the highest value in the doubly circular linked list
-t_stack	*dclst_find_max(t_stack *node, int len)
+t_stack	*dclst_find_max(t_stack *head)
 {
+	printf("FIND MAX\n");
+	t_stack	*current;
 	t_stack	*max;
 
-	if (!node)
+	if (!head)
 		return (NULL);
-	max = node;
-	while (len > 0)
+	current = head;
+	max = head;
+	while (current->next != head)
 	{
-		if (node->data > max->data)
-			max = node;
-		node = node->next;
-		len--;
+		if (current->data > max->data)
+			max = current;
+		current = current->next;
 	}
+	if (current->data > max->data)
+		max = current;
 	return (max);
+}
+
+// Function to find the lowest value in the doubly circular linked list
+t_stack	*dclst_find_min(t_stack *head)
+{
+	printf("FIND MIN\n");
+	t_stack	*current;
+	t_stack	*min;
+
+	if (!head)
+		return (NULL);
+	current = head;
+	min = head;
+	while (current->next != head)
+	{
+		if (current->data < min->data)
+			min = current;
+		current = current->next;
+	}
+	if (current->data < min->data)
+		min = current;
+	return (min);
 }
 
 // Function to find the position of a node in the doubly circular linked list
