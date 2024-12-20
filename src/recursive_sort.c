@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 16:28:26 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 16:45:06 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to sort the remainder in stack_a
 int	sort_a(t_stack **a, t_stack **b, int len)
 {
-	printf("*****\nBEFORE SORT A\n*****\n");
+	printf("*****\nSORT A : %d\n*****\n", len);
 	dclst_print(*a);
 	dclst_print(*b);
 	int		treshold;
@@ -116,6 +116,7 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 
 	if (!a || !*a || len < 1)
 		return (-1);
+	pushed = 0;
 	if (len == 1)
 		return (0);
 	treshold = pivot_value(*a, len);
@@ -149,10 +150,28 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 	return (0);
 }
 
+// Function to get back the values from stack_b to stack_a
+int	get_back_to_a(t_stack **a, t_stack **b, int len)
+{
+	printf("*****\nGET BACK TO A: %d\n*****\n", len);
+	int		pushed;
+
+	if (!b || !*b || len < 1)
+		return (-1);
+	pushed = 0;
+	while (pushed < len)
+	{
+		if (pa(a, b) < 0)
+			return (-1);
+		pushed++;
+	}
+	return (0);
+}
+
 // Function to sort the remainder in stack_b
 int	sort_b(t_stack **a, t_stack **b, int len)
 {
-	printf("*****\nBEFORE SORT B\n*****\n");
+	printf("*****\nSORT B : %d\n*****\n", len);
 	dclst_print(*a);
 	dclst_print(*b);
 	int		treshold;
@@ -160,6 +179,7 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 
 	if (!b || !*b || len < 1)
 		return (-1);
+	pushed = 0;
 	if (len > 2)
 	{
 		treshold = pivot_value(*b, len);
@@ -172,12 +192,12 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 			return (-1);
 		len = len / 2;
 		printf("NEW LEN = %d\n", len);
-	}
-	if (len > 2)
-	{
-		printf("OUVRE LA BOUCLE RECURSIVE B\n");
-		if (sort_b(a, b, len) < 0)
-			return (-1);
+		if (len > 2)
+		{
+			printf("OUVRE LA BOUCLE RECURSIVE B\n");
+			if (sort_b(a, b, len) < 0)
+				return (-1);
+		}
 	}
 	else if (len == 2)
 	{
@@ -191,6 +211,8 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 		if (sort_a(a, b, pushed) < 0)
 			return (-1);
 	}
+	if (get_back_to_a(a, b, len) < 0)
+		return (-1);
 	return (0);
 }
 

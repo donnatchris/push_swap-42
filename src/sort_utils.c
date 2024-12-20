@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 15:57:01 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/20 16:47:14 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	sort_2b(t_stack **b)
 {
 	if (!b || !*b)
 		return (-1);
-	if ((*b)->data > (*b)->next->data)
+	if ((*b)->data < (*b)->next->data)
 		sb(b);
 	return (0);
 }
