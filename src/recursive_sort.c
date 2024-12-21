@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 23:27:53 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 08:03:25 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	pivot_value(t_stack *head, int len)
 	int		j;
 	int		i;
 
-	if (!head || len < 	2)
-		return (-2147483647);
 	pivot = head;
 	j = 0;
 	while (j < len)
@@ -39,9 +37,7 @@ int	pivot_value(t_stack *head, int len)
 			i++;
 		}
 		if (n_inferior_values == len / 2)
-		{
 			return (pivot->data);
-		}
 		pivot = pivot->next;
 		j++;
 	}
@@ -61,13 +57,12 @@ int	divide_first_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (pb(a, b) < 0)
+			if (PB < 0)
 				return (-1);
 			pushed++;
 		}
 		else
-			if (ra(a) < 0)
-				return (-1);
+			RA;
 	}
 	return (pushed);
 }
@@ -87,21 +82,19 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (pb(a, b) < 0)
+			if (PB < 0)
 				return (-1);
 			pushed++;
 		}
 		else
 		{
-			if (ra(a) < 0)
-				return (-1);
+			RA;
 			set_aside++;
 		}
 	}
-	while (set_aside > 0)
+	while (set_aside > 0 && dclst_count_nodes(*a) > 1)
 	{
-		if (rra(a) < 0)
-			return (-1);
+		RRA;
 		set_aside--;
 	}
 	return (pushed);
@@ -122,21 +115,19 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*b)->data >= treshold)
 		{
-			if (pa(a, b) < 0)
+			if (PA < 0)
 				return (-1);
 			pushed++;
 		}
 		else
 		{
-			if (rb(b) < 0)
-				return (-1);
+			RB;
 			set_aside++;
 		}
 	}
-	while (set_aside > 0)
+	while (set_aside > 0 && dclst_count_nodes(*b) > 1)
 	{
-		if (rrb(b) < 0)
-			return (-1);
+		RRB;
 		set_aside--;
 	}
 	return (pushed);
@@ -146,17 +137,13 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 int	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
 	// printf("GET BACK TO B\n");
-	int		pushed;
-
 	if (!a || !*a)
 		return (-1);
-	pushed = 0;
-	while (pushed < len)
+	while (len > 0)
 	{
-		if (pb(a, b) < 0)
+		if (PB < 0)
 			return (-1);
-		pushed++;
-	}
+		len--;}
 	return (0);
 }
 
@@ -164,16 +151,13 @@ int	get_back_to_b(t_stack **a, t_stack **b, int len)
 int	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
 	// printf("GET BACK TO A\n");
-	int		pushed;
-
 	if (!b || !*b)
 		return (-1);
-	pushed = 0;
-	while (pushed < len)
+	while (len > 0)
 	{
-		if (pa(a, b) < 0)
+		if (PA < 0)
 			return (-1);
-		pushed++;
+		len--;
 	}
 	return (0);
 }
@@ -190,19 +174,13 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 	if (len <= 2)
 	{
 		if (len == 2)
-		{
-			if (sort_2b(b) < 0)
-				return (-1);
-		}
+			sort_2b(b);
 		if (get_back_to_a(a, b, len) < 0)
 			return (-1);
 	}
 	else
 	{
-		pushed = 0;
 		treshold = pivot_value(*b, len);
-		if (treshold == -2147483648)
-			return (-1);
 		pushed = divide_b_by_treshold(a, b, len, treshold);
 		if (pushed < 0)
 			return (-1);
@@ -227,20 +205,16 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 
 	if (!a || !*a || len < 1)
 		return (-1);
+	if (is_sorted(*a))
+		return (0);
 	if  (len <= 2)
 	{
 		if (len == 2)
-		{
-			if (sort_2a(a) < 0)
-				return (-1);
-		}
+			sort_2a(a);
 	}
 	else
 	{
-		pushed = 0;
 		treshold = pivot_value(*a, len);
-		if (treshold == -2147483648)
-			return (-1);
 		pushed = divide_a_by_treshold(a, b, len, treshold);
 		if (pushed < 0)
 			return (-1);
@@ -268,20 +242,16 @@ int	first_sort_a(t_stack **a, t_stack **b, int len)
 
 	if (!a || !*a || len < 1)
 		return (-1);
+	if (is_sorted(*a))
+		return (0);
 	if  (len <= 2)
 	{
 		if (len == 2)
-		{
-			if (sort_2a(a) < 0)
-				return (-1);
-		}
+			sort_2a;
 	}
 	else
 	{
-		pushed = 0;
 		treshold = pivot_value(*a, len);
-		if (treshold == -2147483648)
-			return (-1);
 		pushed = divide_first_a_by_treshold(a, b, len, treshold);
 		if (pushed < 0)
 			return (-1);
@@ -309,15 +279,15 @@ int	push_swap(t_stack **a, t_stack **b)
 		return (dclst_clear(a), 0);
 	len = dclst_count_nodes(*a);
 	if (len <= 3)
-		return (dclst_clear(a), sort_3_or_less(a));
+		return (sort_3_or_less(a), dclst_clear(a), 0);
 	if (first_sort_a(a, b, len) < 0)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a))
 		write(1, "Sort has failed\n", 16);
-	// printf("SORT REUSSI\n");
-	// printf("STACK A\n");
-	// dclst_print(*a);
-	// printf("STACK B\n");
-	// dclst_print(*b);
+	printf("SORT REUSSI\n");
+	printf("STACK A\n");
+	dclst_print(*a);
+	printf("STACK B\n");
+	dclst_print(*b);
 	return (dclst_clear(a), dclst_clear(b), 0);	
 }

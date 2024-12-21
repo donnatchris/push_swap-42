@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 17:05:09 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 08:01:27 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,22 @@
 // ATENTION, MUST BE REMOVED BEFORE SUBMITTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # include <stdio.h>
 
+// Libraries
 # include <unistd.h>
 # include <stdlib.h>
+
+// Macros
+# define SA sa(a)
+# define SB sb(b)
+# define SS ss(a, b)
+# define PA pa(a, b)
+# define PB pb(a, b)
+# define RA ra(a)
+# define RB rb(b)
+# define RR rr(a, b)
+# define RRA rra(a)
+# define RRB rrb(b)
+# define RRR rrr(a, b)
 
 // Structure for the doubly circular linked list
 typedef struct s_stack
@@ -29,20 +43,20 @@ typedef struct s_stack
 
 // SRC DIRECTORY
 // src/swap_functions.c
-int		sa(t_stack **stack_a);
-int		sb(t_stack **stack_b);
-int		sb(t_stack **stack_b);
+void	sa(t_stack **a);
+void		sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 // src/push_functions.c
-int		pa(t_stack **stack_a, t_stack **stack_b);
-int		pb(t_stack **stack_a, t_stack **stack_b);
+int		pa(t_stack **a, t_stack **b);
+int		pb(t_stack **a, t_stack **b);
 // src/reverse_rotate_functions.c
-int		rra(t_stack **stack_a);
-int		rrb(t_stack **stack_b);
-int		rrr(t_stack **stack_a, t_stack **stack_b);
+void		rra(t_stack **a);
+void		rrb(t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
 // src/rotate_functions.c
-int		ra(t_stack **stack_a);
-int		rb(t_stack **stack_b);
-int		rr(t_stack **stack_a, t_stack **stack_b);
+void		ra(t_stack **a);
+void		rb(t_stack **b);
+void		rr(t_stack **a, t_stack **b);
 // src/recursive_sort.c
 int		pivot_value(t_stack *head, int len);
 int		sort_a(t_stack **a, t_stack **b, int len);
@@ -52,9 +66,9 @@ int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		push_swap(t_stack **a, t_stack **b);
 // src/sort_utils.c
 int		is_sorted(t_stack *stack);
-int		sort_2a(t_stack **a);
-int		sort_2b(t_stack **b);
-int		sort_3_or_less(t_stack **stack);
+void		sort_2a(t_stack **a);
+void		sort_2b(t_stack **b);
+void		sort_3_or_less(t_stack **stack);
 
 // UTILS DIRECTORY
 // utils/dclst1.c

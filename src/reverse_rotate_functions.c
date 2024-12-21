@@ -6,45 +6,37 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:29 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 23:24:28 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 07:26:02 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 // Function to shift all the elements of stack a down by one position
-int	rra(t_stack **stack_a)
+void	rra(t_stack **a)
 {
+	if (!a || !*a || !(*a)->previous)
+		return ;
 	write(1, "rra\n", 4);
-	if (!stack_a || !*stack_a)
-		return (-1);
-	if (*stack_a == (*stack_a)->previous)
-		return (0);
-	*stack_a = (*stack_a)->previous;
-	return (0);
+	*a = (*a)->previous;
 }
 
 // Function to shift all the elements of stack b down by one position
-int	rrb(t_stack **stack_b)
+void	rrb(t_stack **b)
 {
-	if (!stack_b || !*stack_b)
-		return (-1);
+	if (!b || !*b || !(*b)->previous)
+		return ;
 	write(1, "rrb\n", 4);
-	if (*stack_b == (*stack_b)->previous)
-		return (0);
-	*stack_b = (*stack_b)->previous;
-	return (0);
+	*b = (*b)->previous;
 }
 
 // Function to shift all the elements of stack a down by one position
 // and shift all the elements of stack b down by one position
-int	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	int	result;
-
+	if (!a || !b || !*a || !*b || *a == (*a)->previous || *b == (*b)->previous)
+		return ;
 	write(1, "rrr\n", 4);
-	result = 0;
-	result += rra(stack_a);
-	result += rrb(stack_b);
-	return (result);
+	*a = (*a)->previous;
+	*b = (*b)->previous;
 }

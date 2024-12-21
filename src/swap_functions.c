@@ -6,51 +6,39 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:19:00 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 08:00:15 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 // Function to swap the first two elements of stack_a
-int	sa(t_stack **stack_a)
+void	sa(t_stack **a)
 {
-	int	result;
-
+	if (!a || !*a || (*a)->next == *a)
+		return ;
 	write(1, "sa\n", 3);
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return (-1);
-	result = dclst_swap_nodes(stack_a, *stack_a, (*stack_a)->next);
-	return (result);
+	dclst_swap_nodes(a, *a, (*a)->next);
 }
 
 // Function to swap the first two elements of stack b
-int	sb(t_stack **stack_b)
+void	sb(t_stack **b)
 {
-	int	result;
-
+	if (!b || !*b || (*b)->next == *b)
+		return ;
 	write(1, "sb\n", 3);
-	if (!stack_b || !*stack_b || !(*stack_b)->next)
-		return (-1);
-	result = dclst_swap_nodes(stack_b, *stack_b, (*stack_b)->next);
-	return (result);
+	dclst_swap_nodes(b, *b, (*b)->next);
 }
 
 // Function to swap the first two elements of stack_a
 // and swap the first two elements of swap_b
-int	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **a, t_stack **b)
 {
-	int	result;
-
+	if (!a || !*a || (*a)->next == *a)
+		return ;
+	if (!b || !*b || (*b)->next == *b)
+		return ;
 	write(1, "ss\n", 3);
-	result = 0;
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		result += -1;
-	else
-		result += dclst_swap_nodes(stack_a, *stack_a, (*stack_a)->next);
-	if (!stack_b || !*stack_b || !(*stack_b)->next)
-		result += -1;
-	else
-		result += dclst_swap_nodes(stack_b, *stack_b, (*stack_b)->next);
-	return (result);
+	dclst_swap_nodes(a, *a, (*a)->next);
+	dclst_swap_nodes(b, *b, (*b)->next);
 }

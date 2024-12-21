@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 23:28:50 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 08:02:15 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,66 +28,63 @@ int	is_sorted(t_stack *stack)
 }
 
 // Function to sort the 2 elements at the top of a stack a
-int	sort_2a(t_stack **a)
+void	sort_2a(t_stack **a)
 {
 	// printf("SORT 2A\n");
 	if (!a || !*a)
-		return (-1);
+		return ;
 	if ((*a)->data > (*a)->next->data)
-		sa(a);
-	return (0);
+		SA;
 }
 
 // Function to sort the 2 elements at the top of a stack b
-int	sort_2b(t_stack **b)
+void	sort_2b(t_stack **b)
 {
 	// printf("SORT 2B\n");
 	if (!b || !*b)
-		return (-1);
+		return ;
 	if ((*b)->data < (*b)->next->data)
-		sb(b);
-	return (0);
+		SB;
 }
 
 // Function to sort a stack with 3 or less elements
-int	sort_3_or_less(t_stack **stack)
+void	sort_3_or_less(t_stack **a)
 {
 	// printf("SORT 3 OR LESS\n");
 	int	stack_len;
 
-	if (!stack || !*stack)
-		return (-1);
-	stack_len = dclst_count_nodes(*stack);
+	if (!a || !*a)
+		return ;
+	stack_len = dclst_count_nodes(*a);
 	if (stack_len == 1)
-		return (0);
+		return ;
 	else if (stack_len == 2)
 	{
-		if ((*stack)->data > (*stack)->next->data)
-			sa(stack);
-		return (0);
+		if ((*a)->data > (*a)->next->data)
+			SA;
+		return ;
 	}
-	if ((*stack)->data < (*stack)->next->data && (*stack)->data < (*stack)->previous->data)
+	if ((*a)->data < (*a)->next->data && (*a)->data < (*a)->previous->data)
 	{
-		if ((*stack)->next->data > (*stack)->previous->data)
+		if ((*a)->next->data > (*a)->previous->data)
 		{
-			sa(stack);
-			ra(stack);
+			SA;
+			RA;
 		}
 	}
-	else if ((*stack)->data > (*stack)->next->data && (*stack)->data > (*stack)->previous->data)
+	else if ((*a)->data > (*a)->next->data && (*a)->data > (*a)->previous->data)
 	{
-		ra(stack);
-		if ((*stack)->data > (*stack)->next->data)
-			sa(stack);
+		RA;
+		if ((*a)->data > (*a)->next->data)
+			SA;
 	}
 	else
 	{
-		if ((*stack)->previous->data < (*stack)->data)
-			rra(stack);
+		if ((*a)->previous->data < (*a)->data)
+			RRA;
 		else
-			sa(stack);
+			SA;
 	}
-	return (0);
 }
 
 // Function to see if rotate is the shortest way to the top
