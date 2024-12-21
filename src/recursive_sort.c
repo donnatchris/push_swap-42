@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 08:03:25 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 08:31:14 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	divide_first_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	// printf("DIVIDE FIRST A BY TRESHOLD\n");
 	int		pushed;
 
-	if (!a || !*a)
-		return (-1);
 	pushed = 0;
 	while (pushed < len / 2)
 	{
@@ -74,8 +72,6 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	int		pushed;
 	int		set_aside;
 
-	if (!a || !*a)
-		return (-1);
 	set_aside = 0;
 	pushed = 0;
 	while (pushed < len / 2)
@@ -107,8 +103,6 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	int		pushed;
 	int		set_aside;
 
-	if (!b || !*b)
-		return (-1);
 	set_aside = 0;
 	pushed = 0;
 	while (pushed < len / 2 + len % 2)
@@ -137,8 +131,6 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 int	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
 	// printf("GET BACK TO B\n");
-	if (!a || !*a)
-		return (-1);
 	while (len > 0)
 	{
 		if (PB < 0)
@@ -151,8 +143,6 @@ int	get_back_to_b(t_stack **a, t_stack **b, int len)
 int	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
 	// printf("GET BACK TO A\n");
-	if (!b || !*b)
-		return (-1);
 	while (len > 0)
 	{
 		if (PA < 0)
@@ -169,8 +159,6 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 	int		treshold;
 	int		pushed;
 
-	if (!b || !*b || len < 1)
-		return (-1);
 	if (len <= 2)
 	{
 		if (len == 2)
@@ -185,13 +173,11 @@ int	sort_b(t_stack **a, t_stack **b, int len)
 		if (pushed < 0)
 			return (-1);
 		if (pushed > 0)
-		{
 			if (sort_a(a, b, pushed) < 0)
 				return (-1);
-		}
 		len = len / 2;
-			if (sort_b(a, b, len) < 0)
-				return (-1);
+		if (sort_b(a, b, len) < 0)
+			return (-1);
 	}
 	return (0);
 }
@@ -203,15 +189,10 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 	int		treshold;
 	int		pushed;
 
-	if (!a || !*a || len < 1)
-		return (-1);
-	if (is_sorted(*a))
+	if (len == 1 || is_sorted(*a))
 		return (0);
-	if  (len <= 2)
-	{
-		if (len == 2)
-			sort_2a(a);
-	}
+	if (len == 2)
+		sort_2a(a);
 	else
 	{
 		treshold = pivot_value(*a, len);
@@ -220,15 +201,11 @@ int	sort_a(t_stack **a, t_stack **b, int len)
 			return (-1);
 		len = len / 2 + len % 2;
 		if (len > 1)
-			{
-				if (sort_a(a, b, len) < 0)
-					return (-1);
-			}
+			if (sort_a(a, b, len) < 0)
+				return (-1);
 		if (pushed > 0)
-		{
 			if (sort_b(a, b, pushed) < 0)
 				return (-1);
-		}
 	}
 	return (0);
 }
@@ -240,15 +217,8 @@ int	first_sort_a(t_stack **a, t_stack **b, int len)
 	int		treshold;
 	int		pushed;
 
-	if (!a || !*a || len < 1)
-		return (-1);
 	if (is_sorted(*a))
 		return (0);
-	if  (len <= 2)
-	{
-		if (len == 2)
-			sort_2a;
-	}
 	else
 	{
 		treshold = pivot_value(*a, len);
@@ -257,15 +227,11 @@ int	first_sort_a(t_stack **a, t_stack **b, int len)
 			return (-1);
 		len = len / 2 + len % 2;
 		if (len > 1)
-			{
-				if (sort_a(a, b, len) < 0)
-					return (-1);
-			}
+			if (sort_a(a, b, len) < 0)
+				return (-1);
 		if (pushed > 0)
-		{
 			if (sort_b(a, b, pushed) < 0)
 				return (-1);
-		}
 	}
 	return (0);
 }
