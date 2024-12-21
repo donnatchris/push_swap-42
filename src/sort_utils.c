@@ -6,23 +6,40 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 08:02:15 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 14:12:58 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 // Function to see if a stack is sorted
-int	is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack, int len)
 {
 	t_stack	*index;
 
 	index = stack;
-	while (index->next != stack)
+	while (len > 1)
 	{
 		if (index->data > index->next->data)
 			return (0);
 		index = index->next;
+		len--;
+	}
+	return (1);
+}
+
+// Function to see if a stack is reverse sorted
+int	is_reverse_sorted(t_stack *stack, int len)
+{
+	t_stack	*index;
+
+	index = stack;
+	while (len > 1)
+	{
+		if (index->data < index->next->data)
+			return (0);
+		index = index->next;
+		len--;
 	}
 	return (1);
 }
@@ -36,6 +53,66 @@ void	sort_2a(t_stack **a)
 	if ((*a)->data > (*a)->next->data)
 		SA;
 }
+
+// Function to sort the 3 elements at the top of stack a in ascending order
+void	sort_3a(t_stack **a)
+{
+    printf("SORT 3A\n");
+    t_stack	*last;
+	if (is_sorted(*a, 3))
+		return ;
+	last = (*a)->next->next;
+	if (last->data > (*a)->data && last->data > (*a)->next->data)
+		SA;
+	else if ((*a)->next->data > (*a)->data)
+	{
+		RA;
+		SA;
+		RRA;
+		if ((*a)->data > (*a)->next->data)
+			SA;
+	}
+	else
+	{
+		SA;
+		RA;
+		SA;
+		RRA;
+		if ((*a)->data > (*a)->next->data)
+			SA;
+	}
+}
+
+// Function to sort the 3 elements at the top of stack b in descending order
+void	sort_3b(t_stack **b)
+{
+    printf("SORT 3B\n");
+    t_stack	*last;
+	
+	if (is_reverse_sorted(*b, 3))
+		return ;
+	last = (*b)->next->next;
+	if (last->data < (*b)->data && last->data < (*b)->next->data)
+		SB;
+	else if ((*b)->next->data < (*b)->data)
+	{
+		RB;
+		SB;
+		RRB;
+		if ((*b)->data < (*b)->next->data)
+			SB;
+	}
+	else
+	{
+		SB;
+		RB;
+		SB;
+		RRB;
+		if ((*b)->data < (*b)->next->data)
+			SB;
+	}
+}
+
 
 // Function to sort the 2 elements at the top of a stack b
 void	sort_2b(t_stack **b)

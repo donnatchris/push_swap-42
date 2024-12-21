@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 08:01:27 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/21 12:30:05 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ typedef struct s_stack
 // SRC DIRECTORY
 // src/swap_functions.c
 void	sa(t_stack **a);
-void		sb(t_stack **b);
+void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 // src/push_functions.c
 int		pa(t_stack **a, t_stack **b);
 int		pb(t_stack **a, t_stack **b);
 // src/reverse_rotate_functions.c
-void		rra(t_stack **a);
-void		rrb(t_stack **b);
-void		rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 // src/rotate_functions.c
-void		ra(t_stack **a);
-void		rb(t_stack **b);
-void		rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
 // src/recursive_sort.c
 int		pivot_value(t_stack *head, int len);
 int		sort_a(t_stack **a, t_stack **b, int len);
@@ -65,10 +65,13 @@ int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		push_swap(t_stack **a, t_stack **b);
 // src/sort_utils.c
-int		is_sorted(t_stack *stack);
-void		sort_2a(t_stack **a);
-void		sort_2b(t_stack **b);
-void		sort_3_or_less(t_stack **stack);
+int		is_sorted(t_stack *stack, int len);
+int		is_reverse_sorted(t_stack *stack, int len);
+void	sort_2a(t_stack **a);
+void	sort_2b(t_stack **b);
+void	sort_3_or_less(t_stack **stack);
+void	sort_3a(t_stack **a);
+void	sort_3b(t_stack **b);
 
 // UTILS DIRECTORY
 // utils/dclst1.c
