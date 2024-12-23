@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 12:30:05 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/23 10:06:48 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,18 @@ void	rrr(t_stack **a, t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-// src/recursive_sort.c
+// src/recursive_sort_1.c
 int		pivot_value(t_stack *head, int len);
-int		sort_a(t_stack **a, t_stack **b, int len);
-int		sort_b(t_stack **a, t_stack **b, int len);
-int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
-int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
+int		sort_pushed_b(t_stack **a, t_stack **b, int len);
+int		sort_pushed_a(t_stack **a, t_stack **b, int len);
+int		recursive_sort(t_stack **a, t_stack **b, int len);
 int		push_swap(t_stack **a, t_stack **b);
+// src/recursive_sort_2.c
+int		first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
+int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
+int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
+int		get_back_to_a(t_stack **a, t_stack **b, int len);
+int		get_back_to_b(t_stack **a, t_stack **b, int len);
 // src/sort_utils.c
 int		is_sorted(t_stack *stack, int len);
 int		is_reverse_sorted(t_stack *stack, int len);
@@ -72,6 +77,8 @@ void	sort_2b(t_stack **b);
 void	sort_3_or_less(t_stack **stack);
 void	sort_3a(t_stack **a);
 void	sort_3b(t_stack **b);
+// src/tiny_sort.c
+
 
 // UTILS DIRECTORY
 // utils/dclst1.c
