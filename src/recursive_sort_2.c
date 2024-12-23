@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 10:03:25 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/23 11:24:58 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 // from stack a to stack b
 int	first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
-	// printf("before DIVIDE FIRST A BY TRESHOLD\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		pushed;
 
 	pushed = 0;
@@ -42,9 +39,6 @@ int	first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // at the bottom of the stack a to the top of the stack a
 int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
-	// printf("before DIVIDE A BY TRESHOLD\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		pushed;
 	int		set_aside;
 
@@ -80,9 +74,6 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // at the bottom of the stack b to the top of the stack b
 int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 {
-	// printf("before DIVIDE B BY TRESHOLD\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		pushed;
 	int		set_aside;
 
@@ -113,9 +104,6 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 // Function to push back the first len nodes from stack b to stack a
 int	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
-	// printf("before GET BACK TO A\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	while (len > 0)
 	{
 		if (PA < 0)
@@ -128,9 +116,6 @@ int	get_back_to_a(t_stack **a, t_stack **b, int len)
 // Function to push back the first len nodes from stack a to stack b
 int	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
-	// printf("before GET BACK TO B\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	while (len > 0)
 	{
 		if (PB < 0)

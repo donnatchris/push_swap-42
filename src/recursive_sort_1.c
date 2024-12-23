@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 10:42:07 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/23 11:25:14 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,27 @@
 int	pivot_value(t_stack *head, int len)
 {
 	t_stack	*current;
-	t_stack *pivot;
+	t_stack	*pivot;
 	int		n_inferior_values;
 	int		j;
 	int		i;
 
 	pivot = head;
 	j = 0;
-	while (j < len)
+	while (j++ < len)
 	{
 		current = head;
 		n_inferior_values = 0;
 		i = 0;
-		while (i < len)
+		while (i++ < len)
 		{
 			if (current->data < pivot->data)
 				n_inferior_values++;
 			current = current->next;
-			i++;
 		}
 		if (n_inferior_values == len / 2)
 			return (pivot->data);
 		pivot = pivot->next;
-		j++;
 	}
 	return (-2147483647);
 }
@@ -47,9 +45,6 @@ int	pivot_value(t_stack *head, int len)
 // Function to sort the remainder in stack_b
 int	sort_pushed_b(t_stack **a, t_stack **b, int len)
 {
-	// printf("before SORT B\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		treshold;
 	int		pushed;
 
@@ -79,9 +74,6 @@ int	sort_pushed_b(t_stack **a, t_stack **b, int len)
 // Function to sort the remainder in stack_a
 int	sort_pushed_a(t_stack **a, t_stack **b, int len)
 {
-	// printf("before SORT A\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		treshold;
 	int		pushed;
 
@@ -106,17 +98,18 @@ int	sort_pushed_a(t_stack **a, t_stack **b, int len)
 	return (0);
 }
 
-// Function to sort stack_a
+// Function to sort stack_a using recursives functions
 int	recursive_sort(t_stack **a, t_stack **b, int len)
 {
-	// printf("FIRST SORT A\n");
-	// dclst_print(*a);
-	// dclst_print(*b);
 	int		treshold;
 	int		pushed;
 
 	if (is_sorted(*a, len))
 		return (0);
+	if (len == 2)
+		return (sort_2a(a), 0);
+	if (len == 3)
+		return (sort_3(a), 0);
 	else
 	{
 		treshold = pivot_value(*a, len);
@@ -144,17 +137,9 @@ int	push_swap(t_stack **a, t_stack **b)
 	if (is_sorted(*a, len) || !a || !*a)
 		return (dclst_clear(a), 0);
 	len = dclst_count_nodes(*a);
-	// if (len <= 5)
-	// 	if (tiny_sort(a, b, len) < 0)
-	// 		return (dclst_clear(a), dclst_clear(b), -1);
-	// else
 	if (recursive_sort(a, b, len) < 0)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a, len) || *b)
 		write(1, "Sort has failed\n", 16);
-	printf("STACK A\n");
-	dclst_print(*a);
-	printf("STACK B\n");
-	dclst_print(*b);
 	return (dclst_clear(a), dclst_clear(b), 0);	
 }

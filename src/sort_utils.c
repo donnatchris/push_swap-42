@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 09:57:17 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/23 10:47:37 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,11 @@ void	sort_2b(t_stack **b)
 }
 
 // Function to sort a stack with 3 or less elements
-void	sort_3_or_less(t_stack **a)
+void	sort_3(t_stack **a)
 {
 	// printf("SORT 3 OR LESS\n");
-	int	stack_len;
-
-	if (!a || !*a)
+	if (!a || !*a || dclst_count_nodes(*a) < 3)
 		return ;
-	stack_len = dclst_count_nodes(*a);
-	if (stack_len == 1)
-		return ;
-	else if (stack_len == 2)
-	{
-		if ((*a)->data > (*a)->next->data)
-			SA;
-		return ;
-	}
 	if ((*a)->data < (*a)->next->data && (*a)->data < (*a)->previous->data)
 	{
 		if ((*a)->next->data > (*a)->previous->data)

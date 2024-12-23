@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 15:48:00 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/23 11:18:14 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	pa(t_stack **stack_a, t_stack **stack_b)
 	new = dclst_insert_node_start(stack_a, (*stack_b)->data);
 	if (!new)
 		return (-1);
-	// attention a free
 	dclst_remove_node(stack_b, *stack_b);
 	return (0);
 }
@@ -39,7 +38,6 @@ int	pb(t_stack **stack_a, t_stack **stack_b)
 	new = dclst_insert_node_start(stack_b, (*stack_a)->data);
 	if (!new)
 		return (-1);
-		// attention a free
 	dclst_remove_node(stack_a, *stack_a);
 	return (0);
 }
