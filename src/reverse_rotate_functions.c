@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:29 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 07:26:02 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:14:54 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to shift all the elements of stack a down by one position
 void	rra(t_stack **a)

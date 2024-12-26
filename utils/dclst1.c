@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:58:54 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/18 22:04:26 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:15:18 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to create a new node in the doubly circular linked list
 t_stack	*dclst_create_node(int data)

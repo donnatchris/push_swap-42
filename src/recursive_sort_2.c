@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 11:24:58 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:14:51 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to push the first len elements below treshold
 // from stack a to stack b

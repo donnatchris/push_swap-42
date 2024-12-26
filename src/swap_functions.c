@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/21 08:00:15 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:15:05 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to swap the first two elements of stack_a
 void	sa(t_stack **a)

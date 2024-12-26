@@ -6,11 +6,11 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:01:57 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/16 17:32:41 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 08:20:31 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../includes/libft.h"
 
 static size_t	ft_cpy_len(char const *s, unsigned int start, size_t len)
 {

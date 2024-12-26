@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 11:25:14 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:41:18 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to find the median value
 // in the len first nodes of the stack head
@@ -134,9 +135,11 @@ int	push_swap(t_stack **a, t_stack **b)
 {
 	int		len;
 
-	if (is_sorted(*a, len) || !a || !*a)
+	if (!a || !*a)
 		return (dclst_clear(a), 0);
 	len = dclst_count_nodes(*a);
+	if (is_sorted(*a, len))
+		return (dclst_clear(a), dclst_clear(b), 0);
 	if (recursive_sort(a, b, len) < 0)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a, len) || *b)

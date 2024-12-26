@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/23 11:18:14 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:14:44 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to push the first element of the stack b to the stack a
 int	pa(t_stack **stack_a, t_stack **stack_b)

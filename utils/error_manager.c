@@ -6,19 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:14 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/16 16:19:12 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:23:35 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-// Function to check if the character is a digit
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to check if the input is valid
 int	check_input(char **args)

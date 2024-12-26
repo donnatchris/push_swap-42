@@ -6,11 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/19 16:13:18 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:29:46 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft/includes/libft.h"
+#include "../includes/push_swap.h"
 
 // Function to count the number of nodes in the doubly circular linked list
 int	dclst_count_nodes(t_stack *head)
@@ -42,18 +43,17 @@ void	dclst_print(t_stack *head)
 		current = head;
 		while (current->next != head)
 		{
-			printf("%d ", current->data);
+			ft_printf("%d ", current->data);
 			current = current->next;
 		}
-		printf("%d", current->data);
+		ft_printf("%d", current->data);
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 // Function to find the highest value in the doubly circular linked list
 t_stack	*dclst_find_max(t_stack *head)
 {
-	printf("FIND MAX\n");
 	t_stack	*current;
 	t_stack	*max;
 
@@ -75,7 +75,6 @@ t_stack	*dclst_find_max(t_stack *head)
 // Function to find the lowest value in the doubly circular linked list
 t_stack	*dclst_find_min(t_stack *head)
 {
-	printf("FIND MIN\n");
 	t_stack	*current;
 	t_stack	*min;
 
