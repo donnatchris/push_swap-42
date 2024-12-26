@@ -6,32 +6,12 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:29:46 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:53:45 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
-
-// Function to count the number of nodes in the doubly circular linked list
-int	dclst_count_nodes(t_stack *head)
-{
-	t_stack	*current;
-	int		count;
-
-	count = 0;
-	if (head)
-	{
-		current = head;
-		while (current->next != head)
-		{
-			count++;
-			current = current->next;
-		}
-		count++;
-	}
-	return (count);
-}
 
 // Function to print the doubly circular linked list 
 void	dclst_print(t_stack *head)
@@ -94,7 +74,8 @@ t_stack	*dclst_find_min(t_stack *head)
 }
 
 // Function to find the position of a node in the doubly circular linked list
-// Returns the position of the node in the list or -1 if the node is not in the list
+// Returns the position of the node in the list
+// or -1 if the node is not in the list
 int	dclst_find_node_pos(t_stack *head, t_stack *node)
 {
 	t_stack	*current;

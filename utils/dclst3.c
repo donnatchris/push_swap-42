@@ -6,12 +6,32 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:38:36 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:15:24 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:54:06 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
+
+// Function to count the number of nodes in the doubly circular linked list
+int	dclst_count_nodes(t_stack *head)
+{
+	t_stack	*current;
+	int		count;
+
+	count = 0;
+	if (head)
+	{
+		current = head;
+		while (current->next != head)
+		{
+			count++;
+			current = current->next;
+		}
+		count++;
+	}
+	return (count);
+}
 
 // Function to update the previous pointers after having swapped 2 nodes
 static void	update_previous_pointers(t_stack *head)

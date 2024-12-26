@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:45:58 by chdonnat          #+#    #+#             */
-/*   Updated: 2024/12/26 09:20:06 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:45:15 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,12 +294,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //		needed.
 //	-> Returns the new list otr NULL if allocation fails.
 
-
 /*******************************************************************************
 OTHER FUNCTIONS
 ******************************************************************************/
 
-int	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 //	Outputs the string str to the standard output (like printf())
 // 	allowing the use of meta-characters to print variables.
 //		-> Returns the number of characters printed.

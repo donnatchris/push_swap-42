@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:41:18 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:56:22 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,5 @@ int	push_swap(t_stack **a, t_stack **b)
 		return (dclst_clear(a), dclst_clear(b), -1);
 	if (!is_sorted(*a, len) || *b)
 		write(1, "Sort has failed\n", 16);
-	return (dclst_clear(a), dclst_clear(b), 0);	
+	return (dclst_clear(a), dclst_clear(b), 0);
 }

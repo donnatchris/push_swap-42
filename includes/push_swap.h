@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:27:47 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:54:24 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int		sort_pushed_a(t_stack **a, t_stack **b, int len);
 int		recursive_sort(t_stack **a, t_stack **b, int len);
 int		push_swap(t_stack **a, t_stack **b);
 // src/recursive_sort_2.c
-int		first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
+int		first_divide_a_by_treshold(
+			t_stack **a, t_stack **b, int len, int treshold);
 int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		get_back_to_a(t_stack **a, t_stack **b, int len);
@@ -85,13 +86,13 @@ t_stack	*dclst_insert_node_start(t_stack **head, int data);
 void	dclst_remove_node(t_stack **head, t_stack *node);
 void	dclst_clear(t_stack **head);
 // utils/dclst2.c
-int		dclst_count_nodes(t_stack *head);
 void	dclst_print(t_stack *head);
 t_stack	*dclst_find_min(t_stack *head);
 t_stack	*dclst_find_max(t_stack *head);
 int		dclst_find_node_pos(t_stack *head, t_stack *node);
 t_stack	*dclst_find_node_with_pos(t_stack *head, int pos);
 // utils/dclst3.c
+int	dclst_count_nodes(t_stack *head);
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // src/error_manager.c
 int		check_input(char **args);

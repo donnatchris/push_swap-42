@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:14:51 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 11:56:47 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int	get_back_to_b(t_stack **a, t_stack **b, int len)
 	{
 		if (PB < 0)
 			return (-1);
-		len--;}
+		len--;
+	}
 	return (0);
 }
