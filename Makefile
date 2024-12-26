@@ -6,12 +6,12 @@
 #    By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 16:21:20 by christophed       #+#    #+#              #
-#    Updated: 2024/12/26 10:47:14 by christophed      ###   ########.fr        #
+#    Updated: 2024/12/26 15:12:38 by christophed      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nom de l'exécutable
-TARGET = bin/push_swap
+TARGET = push_swap
 
 # Répertoires
 SRC_DIR = src
