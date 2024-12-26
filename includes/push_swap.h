@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:54:24 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:21:46 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,6 @@
 // Libraries
 # include <unistd.h>
 # include <stdlib.h>
-
-// Macros
-# define SA sa(a)
-# define SB sb(b)
-# define SS ss(a, b)
-# define PA pa(a, b)
-# define PB pb(a, b)
-# define RA ra(a)
-# define RB rb(b)
-# define RR rr(a, b)
-# define RRA rra(a)
-# define RRB rrb(b)
-# define RRR rrr(a, b)
 
 // Structure for the doubly circular linked list
 typedef struct s_stack
@@ -92,7 +79,7 @@ t_stack	*dclst_find_max(t_stack *head);
 int		dclst_find_node_pos(t_stack *head, t_stack *node);
 t_stack	*dclst_find_node_with_pos(t_stack *head, int pos);
 // utils/dclst3.c
-int	dclst_count_nodes(t_stack *head);
+int		dclst_count_nodes(t_stack *head);
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // src/error_manager.c
 int		check_input(char **args);

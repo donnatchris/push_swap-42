@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:55:27 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:20:13 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	sort_2a(t_stack **a)
 	if (!a || !*a)
 		return ;
 	if ((*a)->data > (*a)->next->data)
-		SA;
+		sa(a);
 }
 
 // Function to sort by reverse the 2 elements at the top of a stack b
@@ -60,7 +60,7 @@ void	sort_2b(t_stack **b)
 	if (!b || !*b)
 		return ;
 	if ((*b)->data < (*b)->next->data)
-		SB;
+		sb(b);
 }
 
 // Function to sort a stack with 3 or less elements
@@ -72,21 +72,21 @@ void	sort_3(t_stack **a)
 	{
 		if ((*a)->next->data > (*a)->previous->data)
 		{
-			SA;
-			RA;
+			sa(a);
+			ra(a);
 		}
 	}
 	else if ((*a)->data > (*a)->next->data && (*a)->data > (*a)->previous->data)
 	{
-		RA;
+		ra(a);
 		if ((*a)->data > (*a)->next->data)
-			SA;
+			sa(a);
 	}
 	else
 	{
 		if ((*a)->previous->data < (*a)->data)
-			RRA;
+			rra(a);
 		else
-			SA;
+			sa(a);
 	}
 }

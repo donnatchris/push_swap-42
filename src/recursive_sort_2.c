@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:56:47 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:20:25 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (PB < 0)
+			if (pb(a, b) < 0)
 				return (-1);
 			pushed++;
 		}
 		else
-			RA;
+			ra(a);
 	}
 	return (pushed);
 }
@@ -49,13 +49,13 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (PB < 0)
+			if (pb(a, b) < 0)
 				return (-1);
 			pushed++;
 		}
 		else
 		{
-			RA;
+			ra(a);
 			set_aside++;
 		}
 	}
@@ -63,7 +63,7 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 		set_aside = 0;
 	while (set_aside > 0 && dclst_count_nodes(*a) > 1)
 	{
-		RRA;
+		rra(a);
 		set_aside--;
 	}
 	return (pushed);
@@ -84,19 +84,19 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*b)->data >= treshold)
 		{
-			if (PA < 0)
+			if (pa(a, b) < 0)
 				return (-1);
 			pushed++;
 		}
 		else
 		{
-			RB;
+			rb(b);
 			set_aside++;
 		}
 	}
 	while (set_aside > 0 && dclst_count_nodes(*b) > 1)
 	{
-		RRB;
+		rra(b);
 		set_aside--;
 	}
 	return (pushed);
@@ -107,7 +107,7 @@ int	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
 	while (len > 0)
 	{
-		if (PA < 0)
+		if (pa(a, b) < 0)
 			return (-1);
 		len--;
 	}
@@ -119,7 +119,7 @@ int	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
 	while (len > 0)
 	{
-		if (PB < 0)
+		if (pb(a, b) < 0)
 			return (-1);
 		len--;
 	}
