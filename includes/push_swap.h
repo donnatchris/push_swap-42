@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 12:21:46 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:50:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ int		sort_pushed_a(t_stack **a, t_stack **b, int len);
 int		recursive_sort(t_stack **a, t_stack **b, int len);
 int		push_swap(t_stack **a, t_stack **b);
 // src/recursive_sort_2.c
+int		get_back_to_a(t_stack **a, t_stack **b, int len);
+int		get_back_to_b(t_stack **a, t_stack **b, int len);
 int		first_divide_a_by_treshold(
 			t_stack **a, t_stack **b, int len, int treshold);
 int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
 int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
-int		get_back_to_a(t_stack **a, t_stack **b, int len);
-int		get_back_to_b(t_stack **a, t_stack **b, int len);
+
 // src/sort_utils.c
 int		is_sorted(t_stack *stack, int len);
 int		is_reverse_sorted(t_stack *stack, int len);

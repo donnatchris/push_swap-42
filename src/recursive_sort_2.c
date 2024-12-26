@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 12:20:25 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:50:28 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,8 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	}
 	if (len == dclst_count_nodes(*a))
 		set_aside = 0;
-	while (set_aside > 0 && dclst_count_nodes(*a) > 1)
-	{
+	while (set_aside-- > 0 && dclst_count_nodes(*a) > 1)
 		rra(a);
-		set_aside--;
-	}
 	return (pushed);
 }
 
@@ -94,11 +91,8 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 			set_aside++;
 		}
 	}
-	while (set_aside > 0 && dclst_count_nodes(*b) > 1)
-	{
+	while (set_aside-- > 0 && dclst_count_nodes(*b) > 1)
 		rra(b);
-		set_aside--;
-	}
 	return (pushed);
 }
 

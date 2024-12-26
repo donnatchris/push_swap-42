@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:02:03 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/20 23:29:35 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/26 12:56:01 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int	main(void)
+int	main(int ac, char **av)
 {
 	int		i;
 	int		n;
@@ -22,8 +22,11 @@ int	main(void)
 	int		rand_num;
 	int		j;
 
+	if (ac != 2)
+		return (1);
+
 	srand(time(NULL));
-	n = 500;
+	n = atoi(av[1]);
 	arr = (int *)malloc(sizeof(int) * n);
 	if (!arr)
 		return (1);
