@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 08:54:17 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 10:48:04 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	first_divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (pb(a, b) < 0)
-				return (-1);
+			pb(a, b);
 			pushed++;
 		}
 		else
@@ -49,8 +48,7 @@ int	divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*a)->data < treshold)
 		{
-			if (pb(a, b) < 0)
-				return (-1);
+			pb(a, b);
 			pushed++;
 		}
 		else
@@ -81,8 +79,7 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 	{
 		if ((*b)->data >= treshold)
 		{
-			if (pa(a, b) < 0)
-				return (-1);
+			pa(a, b);
 			pushed++;
 		}
 		else
@@ -97,25 +94,15 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 }
 
 // Function to push back the first len nodes from stack b to stack a
-int	get_back_to_a(t_stack **a, t_stack **b, int len)
+void	get_back_to_a(t_stack **a, t_stack **b, int len)
 {
-	while (len > 0)
-	{
-		if (pa(a, b) < 0)
-			return (-1);
-		len--;
-	}
-	return (0);
+	while (len-- > 0)
+		pa(a, b);
 }
 
 // Function to push back the first len nodes from stack a to stack b
-int	get_back_to_b(t_stack **a, t_stack **b, int len)
+void	get_back_to_b(t_stack **a, t_stack **b, int len)
 {
-	while (len > 0)
-	{
-		if (pb(a, b) < 0)
-			return (-1);
-		len--;
-	}
-	return (0);
+	while (len-- > 0)
+		pb(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 12:50:21 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 10:57:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 // src/push_functions.c
-int		pa(t_stack **a, t_stack **b);
-int		pb(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
 // src/reverse_rotate_functions.c
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
@@ -47,13 +47,13 @@ void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 // src/recursive_sort_1.c
 int		pivot_value(t_stack *head, int len);
-int		sort_pushed_b(t_stack **a, t_stack **b, int len);
-int		sort_pushed_a(t_stack **a, t_stack **b, int len);
-int		recursive_sort(t_stack **a, t_stack **b, int len);
-int		push_swap(t_stack **a, t_stack **b);
+void	sort_pushed_b(t_stack **a, t_stack **b, int len);
+void	sort_pushed_a(t_stack **a, t_stack **b, int len);
+void	recursive_sort(t_stack **a, t_stack **b, int len);
+void	push_swap(t_stack **a, t_stack **b);
 // src/recursive_sort_2.c
-int		get_back_to_a(t_stack **a, t_stack **b, int len);
-int		get_back_to_b(t_stack **a, t_stack **b, int len);
+void	get_back_to_a(t_stack **a, t_stack **b, int len);
+void	get_back_to_b(t_stack **a, t_stack **b, int len);
 int		first_divide_a_by_treshold(
 			t_stack **a, t_stack **b, int len, int treshold);
 int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
@@ -82,6 +82,8 @@ t_stack	*dclst_find_node_with_pos(t_stack *head, int pos);
 // utils/dclst3.c
 int		dclst_count_nodes(t_stack *head);
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
+// utils/dclst4.c
+void	dclst_move_node(t_stack **origin, t_stack **destination, t_stack *node);
 // src/error_manager.c
 int		check_input(char **args);
 int		is_int(long n);

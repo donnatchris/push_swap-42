@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:45 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:15:05 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 10:31:06 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	sb(t_stack **b)
 // and swap the first two elements of swap_b
 void	ss(t_stack **a, t_stack **b)
 {
-	if (!a || !*a || (*a)->next == *a)
-		return ;
-	if (!b || !*b || (*b)->next == *b)
+	if ((!a && !b) || (!*a && !*b) || ((*a)->next == *a && (*b)->next == *b))
 		return ;
 	write(1, "ss\n", 3);
-	dclst_swap_nodes(a, *a, (*a)->next);
-	dclst_swap_nodes(b, *b, (*b)->next);
+	if (a && *a && (*a)->next != *a)
+		dclst_swap_nodes(a, *a, (*a)->next);
+	if (b && *b && (*b)->next != *b)
+		dclst_swap_nodes(b, *b, (*b)->next);
 }

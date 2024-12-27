@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 15:40:07 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 11:12:22 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,15 @@ t_stack	*dclst_load(char **args)
 	return (head);
 }
 
-int	main(int ac, char **av)
+// Function to clear stacks and args
+void	clear_all(t_stack **a, t_stack **b, char **args, int ac)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char	**args;
-	int		i;
+	int	i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	if (ac < 2)
-		return (0);
-	else if (ac == 2)
-		args = ft_split(av[1], ' ');
-	else
-		args = av + 1;
-	if (check_input(args) == -1)
-		return (write(2, "Error\n", 6), 2);
-	stack_a = dclst_load(args);
-	if (stack_a == NULL || push_swap(&stack_a, &stack_b) < 0)
-		return (write(2, "Error\n", 6), 2);
+	if (a && *a)
+		dclst_clear(a);
+	if (b && *b)
+		dclst_clear(b);
 	if (ac == 2)
 	{
 		i = 0;
@@ -63,5 +52,29 @@ int	main(int ac, char **av)
 			free(args[i++]);
 		free(args);
 	}
+}
+
+// Main function to sort the stack_a
+int	main(int ac, char **av)
+{
+	t_stack	*a;
+	t_stack	*b;
+	char	**args;
+
+	a = NULL;
+	b = NULL;
+	if (ac < 2)
+		return (0);
+	else if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = av + 1;
+	if (check_input(args) == -1)
+		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
+	a = dclst_load(args);
+	if (a == NULL)
+		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
+	push_swap(&a, &b);
+	clear_all(&a, &b, args, ac);
 	return (0);
 }
