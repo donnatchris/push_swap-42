@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:43:50 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 21:40:57 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 22:13:42 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	*find_target(t_stack *a, int data)
 	current = a;
 	target = NULL;
 	len = dclst_count_nodes(a);
-	while (len > 0)	
+	while (len > 0)
 	{
 		if (current->data > data)
 		{
@@ -88,7 +88,6 @@ int	calculate_sort_cost(t_stack *node)
 	}
 	return (cost);
 }
-
 
 // Function to initialize the variables of all the nodes
 // of stack b

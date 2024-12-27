@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 21:58:49 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 22:12:11 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,8 @@ void	push_swap(t_stack **a, t_stack **b)
 	else
 	{
 		while (len-- > 3)
-			pb(a,b);
+			pb(a, b);
 		sort_3(a);
 		sort_from_b_to_a(a, b);
 	}
-	// ft_printf("STACK A\n");
-	// dclst_print(*a);
-	// ft_printf("STACK B\n");
-	// dclst_print(*b);
 }
