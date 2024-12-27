@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:58:57 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 12:50:28 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 08:54:17 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold)
 		}
 	}
 	while (set_aside-- > 0 && dclst_count_nodes(*b) > 1)
-		rra(b);
+		rrb(b);
 	return (pushed);
 }
 
