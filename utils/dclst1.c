@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:58:54 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 13:03:47 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 20:52:29 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ t_stack	*dclst_create_node(int data)
 	new->data = data;
 	new->next = new;
 	new->previous = new;
-	new->rank = 0;
+	new->index = 0;
+	new->rr_cost = 0;
+	new->better_up = 0;
+	new->target = NULL;
+	new->sort_cost = 0;
 	return (new);
 }
 

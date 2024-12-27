@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 16:05:30 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 21:14:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@
 typedef struct s_stack
 {
 	int				data;
-	int				rank;
 	struct s_stack	*next;
 	struct s_stack	*previous;
+	int				index;
+	int				rr_cost;
+	int				better_up;
+	struct s_stack	*target;
+	int				sort_cost;
 }					t_stack;
 
 // SRC DIRECTORY
@@ -46,10 +50,17 @@ void	rrr(t_stack **a, t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-// src/sort.c
-void	get_back_in_order(t_stack **a, t_stack **b, int len);
-void	push_all_to_b(t_stack **a, t_stack **b, int len);
+// src/sort1.c
+void	push_node_to_a(t_stack **a, t_stack **b, t_stack *node);
+t_stack	*find_cheapest_node(t_stack *b);
+void	sort_from_b_to_a(t_stack **a, t_stack **b);
 void	push_swap(t_stack **a, t_stack **b);
+// src/sort2.c
+void	initialize_variables_in_b(t_stack *a, t_stack *b);
+void	initialize_variables_in_a(t_stack *a);
+int		calculate_sort_cost(t_stack *node);
+t_stack	*find_target(t_stack *a, int data);
+void	put_lowest_to_top(t_stack **a);
 // src/sort_utils.c
 int		is_sorted(t_stack *stack, int len);
 int		is_reverse_sorted(t_stack *stack, int len);
@@ -76,7 +87,6 @@ int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // utils/dclst4.c
 void	dclst_move_node(t_stack **origin, t_stack **destination, t_stack *node);
 t_stack	*dclst_find_next_higher(t_stack *head, t_stack *node);
-void	dclst_affect_rank(t_stack *head, int len);
 // src/error_manager.c
 int		check_input(char **args);
 int		is_int(long n);

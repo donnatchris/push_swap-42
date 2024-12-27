@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 10:20:17 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 16:24:57 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 20:52:56 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,4 @@ t_stack	*dclst_find_next_higher(t_stack *head, t_stack *node)
 		current = current->next;
 	}
 	return (next_higher);
-}
-
-// Function to affect rank of each node in the stack
-// from the lowest to the highest
-void	dclst_affect_rank(t_stack *head, int len)
-{
-	t_stack	*current;
-	int		rank;
-
-	if (!head)
-		return ;
-	current = dclst_find_min(head);
-	current->rank = 1;
-	rank = 2;
-	while (rank <= len)
-	{
-		current = dclst_find_next_higher(head, current);
-		current->rank = rank;
-		rank++;
-	}
 }
