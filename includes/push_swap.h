@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 10:57:21 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 11:17:09 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_stack
 // SRC DIRECTORY
 // src/main.c
 t_stack	*dclst_load(char **args);
+void	clear_all(t_stack **a, t_stack **b, char **args, int ac);
 int		main(int ac, char **av);
-
 // src/swap_functions.c
 void	sa(t_stack **a);
 void	sb(t_stack **b);
