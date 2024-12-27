@@ -1,11 +1,22 @@
 PROJECT PUSH_SWAP FOR 42
 - By chdonnat (Christophe Donnat from 42 Perpignan, France)
 
-Some commands you can use:
+AIM OF THE PROJECT:
+
+The Push swap project is a simple and efficient algorithmic exercise:
+you need to sort data.
+You have at your disposal a set of integers, two stacks,
+and a set of instructions to manipulate them.
+Your goal? Write a C program named push_swap that calculates
+and displays on the standard output the smallest program,
+made of Push swap language instructions, that sorts the integers passed as parameters.
+
+SOME COMMANDS YOU CAN USE:
+
 make
-	compiles the push_swap programm
+	compiles the push_swap program
 make bonus
-	compiles the checker programm
+	compiles the checker program
 make fclean
 	remove all .o files and executable files generated par the make command
 ARG=$(./tests/test_generator n)

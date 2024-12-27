@@ -6,13 +6,32 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 22:18:45 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 23:22:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
-#include <stdio.h>
+
+// Function to put the lowest element of stack a to the top
+void	put_lowest_to_top(t_stack **a)
+{
+	t_stack	*lowest;
+	int		len;
+
+	lowest = dclst_find_min(*a);
+	len = dclst_count_nodes(*a);
+	if (lowest->index > len / 2)
+	{
+		while (lowest != *a)
+			rra(a);
+	}
+	else
+	{
+		while (lowest != *a)
+			ra(a);
+	}
+}
 
 // Function to push node from stack b to stack a
 void	push_node_to_a(t_stack **a, t_stack **b, t_stack *node)
