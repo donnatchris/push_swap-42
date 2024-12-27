@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:05:24 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 12:20:13 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 15:30:36 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sort_2b(t_stack **b)
 		sb(b);
 }
 
-// Function to sort a stack with 3 or less elements
+// Function to sort stack a with 3 or less elements
 void	sort_3(t_stack **a)
 {
 	if (!a || !*a || dclst_count_nodes(*a) < 3)

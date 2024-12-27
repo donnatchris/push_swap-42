@@ -6,7 +6,7 @@
 #    By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 16:21:20 by christophed       #+#    #+#              #
-#    Updated: 2024/12/26 15:12:38 by christophed      ###   ########.fr        #
+#    Updated: 2024/12/27 15:33:52 by christophed      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
 
 # Options de compilation
 CFLAGS = -Wall -Wextra -I$(INC_DIR) -I$(LIBFT_DIR)/includes
+
+# Spécifier le compilateur
+CC = gcc
 
 # Options de l'éditeur de liens
 LDFLAGS = -L$(LIBFT_DIR) -lft

@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 11:17:09 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:05:30 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				rank;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }					t_stack;
@@ -45,20 +46,10 @@ void	rrr(t_stack **a, t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-// src/recursive_sort_1.c
-int		pivot_value(t_stack *head, int len);
-void	sort_pushed_b(t_stack **a, t_stack **b, int len);
-void	sort_pushed_a(t_stack **a, t_stack **b, int len);
-void	recursive_sort(t_stack **a, t_stack **b, int len);
+// src/sort.c
+void	get_back_in_order(t_stack **a, t_stack **b, int len);
+void	push_all_to_b(t_stack **a, t_stack **b, int len);
 void	push_swap(t_stack **a, t_stack **b);
-// src/recursive_sort_2.c
-void	get_back_to_a(t_stack **a, t_stack **b, int len);
-void	get_back_to_b(t_stack **a, t_stack **b, int len);
-int		first_divide_a_by_treshold(
-			t_stack **a, t_stack **b, int len, int treshold);
-int		divide_a_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
-int		divide_b_by_treshold(t_stack **a, t_stack **b, int len, int treshold);
-
 // src/sort_utils.c
 int		is_sorted(t_stack *stack, int len);
 int		is_reverse_sorted(t_stack *stack, int len);
@@ -84,6 +75,8 @@ int		dclst_count_nodes(t_stack *head);
 int		dclst_swap_nodes(t_stack **head, t_stack *node1, t_stack *node2);
 // utils/dclst4.c
 void	dclst_move_node(t_stack **origin, t_stack **destination, t_stack *node);
+t_stack	*dclst_find_next_higher(t_stack *head, t_stack *node);
+void	dclst_affect_rank(t_stack *head, int len);
 // src/error_manager.c
 int		check_input(char **args);
 int		is_int(long n);

@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:53:45 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:23:33 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	dclst_print(t_stack *head)
 		current = head;
 		while (current->next != head)
 		{
-			ft_printf("%d ", current->data);
+			ft_printf("%d\n", current->data);
 			current = current->next;
 		}
-		ft_printf("%d", current->data);
+		ft_printf("%d\n", current->data);
 	}
 	ft_printf("\n");
 }

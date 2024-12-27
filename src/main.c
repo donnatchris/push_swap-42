@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 11:12:22 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 12:59:28 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ int	main(int ac, char **av)
 	if (a == NULL)
 		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
 	push_swap(&a, &b);
+	if (!is_sorted(a, dclst_count_nodes(a)) || b)
+		write(1, "Sort has failed\n", 16);
 	clear_all(&a, &b, args, ac);
+	
 	return (0);
 }
