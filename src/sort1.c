@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 21:55:55 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 21:58:49 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_node_to_a(t_stack **a, t_stack **b, t_stack *node)
 	if (node->better_up && node->target->better_up)
 	{
 		while (node != *b && node->target != *a)
-			ss(a, b);
+			rr(a, b);
 		while (node != *b)
 			rb(b);
 		while (node->target != *a)
@@ -29,7 +29,7 @@ void	push_node_to_a(t_stack **a, t_stack **b, t_stack *node)
 	else if (!node->better_up && !node->target->better_up)
 	{
 		while (node != *b && node->target != *a)
-			rr(a, b);
+			rrr(a, b);
 		while (node != *b)
 			rrb(b);
 		while (node->target != *a)
