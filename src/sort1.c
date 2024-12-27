@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 08:44:22 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 22:12:11 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/27 22:18:45 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,24 @@
 void	push_node_to_a(t_stack **a, t_stack **b, t_stack *node)
 {
 	if (node->better_up && node->target->better_up)
-	{
 		while (node != *b && node->target != *a)
 			rr(a, b);
-		while (node != *b)
-			rb(b);
-		while (node->target != *a)
-			ra(a);
-	}
 	else if (!node->better_up && !node->target->better_up)
-	{
 		while (node != *b && node->target != *a)
 			rrr(a, b);
-		while (node != *b)
-			rrb(b);
-		while (node->target != *a)
-			rra(a);
-	}
-	else
+	while (node != *b)
 	{
-		while (node != *b)
-		{
-			if (node->better_up)
-				rb(b);
-			else
-				rrb(b);
-		}
-		while (node->target != *a)
-		{
-			if (node->target->better_up)
-				ra(a);
-			else
-				rra(a);
-		}
+		if (node->better_up)
+			rb(b);
+		else
+			rrb(b);
+	}
+	while (node->target != *a)
+	{
+		if (node->target->better_up)
+			ra(a);
+		else
+			rra(a);
 	}
 	pa(a, b);
 }
