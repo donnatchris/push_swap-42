@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:29 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/26 11:14:54 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/28 00:18:21 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rrb(t_stack **b)
 // and shift all the elements of stack b down by one position
 void	rrr(t_stack **a, t_stack **b)
 {
-	if (!a || !b || !*a || !*b || *a == (*a)->previous || *b == (*b)->previous)
+	if (!a || !b || !*a || !*b)
 		return ;
 	write(1, "rrr\n", 4);
 	*a = (*a)->previous;

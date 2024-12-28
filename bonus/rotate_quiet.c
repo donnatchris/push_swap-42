@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_functions.c                                 :+:      :+:    :+:   */
+/*   rotate_quiet.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 08:59:39 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 00:18:53 by christophed      ###   ########.fr       */
+/*   Created: 2024/12/28 00:15:17 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/28 11:08:56 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 #include "../includes/push_swap.h"
 
 // Function to shift all the elements of stack a up by one position
-void	ra(t_stack **a)
+void	quiet_ra(t_stack **a)
 {
 	if (!a || !*a || *a == (*a)->next)
 		return ;
-	write(1, "ra\n", 3);
 	*a = (*a)->next;
 }
 
 // Function to shift all the elements of stack b up by one position
-void	rb(t_stack **b)
+void	quiet_rb(t_stack **b)
 {
-	write(1, "rb\n", 3);
 	if (!b || !*b || *b == (*b)->next)
 		return ;
 	*b = (*b)->next;
@@ -33,11 +31,10 @@ void	rb(t_stack **b)
 
 // Function to shift all the elements of stack a up by one position
 // and shift all the elements of stack b up by one position
-void	rr(t_stack **a, t_stack **b)
+void	quiet_rr(t_stack **a, t_stack **b)
 {
 	if (!a || !b || !*a || !*b)
 		return ;
-	write(1, "rr\n", 3);
 	*a = (*a)->next;
 	*b = (*b)->next;
 }

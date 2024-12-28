@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 08:59:59 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 10:30:36 by christophed      ###   ########.fr       */
+/*   Created: 2024/12/28 00:13:35 by christophed       #+#    #+#             */
+/*   Updated: 2024/12/28 11:12:04 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
 
-// Main function to sort the stack_a
+// Main function test the instructions to sort the stack a
+// Return "OK" if the stack is sorted, "KO" if not,
+// or "Error" if there is an error
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -22,20 +24,20 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac < 2)
+	if (ac != 2)
 		return (0);
-	else if (ac == 2)
-		args = ft_split(av[1], ' ');
-	else
-		args = av + 1;
+	args = ft_split(av[1], ' ');
 	if (check_input(args) == -1)
 		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
 	a = dclst_load(args);
 	if (a == NULL)
 		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
-	push_swap(&a, &b);
+	if (checker(&a, &b) < 0)
+		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
 	if (!is_sorted(a, dclst_count_nodes(a)) || b)
-		write(1, "Sort has failed\n", 16);
+		write(1, "KO\n", 3);
+	else
+		write(1, "OK\n", 3);
 	clear_all(&a, &b, args, ac);
 	return (0);
 }

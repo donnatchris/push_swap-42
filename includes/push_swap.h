@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 09:00:06 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/27 23:29:59 by christophed      ###   ########.fr       */
+/*   Updated: 2024/12/28 11:11:13 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ typedef struct s_stack
 }					t_stack;
 
 // SRC DIRECTORY
-// src/main.c
-// launch program with arguments, load the stack, sort it, free everything
+// src/load_and_clear.c
+// load the stack, free everything
 t_stack	*dclst_load(char **args);
 void	clear_all(t_stack **a, t_stack **b, char **args, int ac);
-int		main(int ac, char **av);
 // src/swap_functions.c
 // swap the first two elements of stack a, stack b, or both
 void	sa(t_stack **a);
@@ -103,5 +102,37 @@ int		has_double(t_stack *head, int data);
 // utils/ft_atoi_long.c
 // convert a string to a long
 long	ft_atoi_long(const char *nptr);
+
+// BONUS DIRECTORY
+// bonus/checker.c
+// check if the instructions are valid and
+// if the stack is sorted after executing the instructions
+int		instruction_4(t_stack **a, t_stack **b, char *line);
+int		instruction_3(t_stack **a, t_stack **b, char *line);
+int		instruction(t_stack **a, t_stack **b, char *line);
+int		checker(t_stack **a, t_stack **b);
+// bonus/push_quiet.c
+// push the first element of one stack to another
+// without printing anything
+void	quiet_pa(t_stack **a, t_stack **b);
+void	quiet_pb(t_stack **a, t_stack **b);
+// bonus/reverse_rotate_quiet.c
+// reverse rotate the stack a, stack b, or both
+// without printing anything
+void	quiet_rra(t_stack **a);
+void	quiet_rrb(t_stack **b);
+void	quiet_rrr(t_stack **a, t_stack **b);
+// bonus/rotate_quiet.c
+// rotate the stack a, stack b, or both
+// without printing anything
+void	quiet_ra(t_stack **a);
+void	quiet_rb(t_stack **b);
+void	quiet_rr(t_stack **a, t_stack **b);
+// bonus/swap_quiet.c
+// swap the first two elements of stack a, stack b, or both
+// without printing anything
+void	quiet_sa(t_stack **a);
+void	quiet_sb(t_stack **b);
+void	quiet_ss(t_stack **a, t_stack **b);
 
 #endif
