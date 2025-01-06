@@ -6,7 +6,7 @@
 /*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:34:05 by christophed       #+#    #+#             */
-/*   Updated: 2025/01/06 12:04:02 by chdonnat         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:17:27 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	instruction(t_stack **a, t_stack **b, char *line)
 	int	len;
 
 	len = ft_strlen(line);
-	ft_printf("len = %d\n", len);
 	if (len != 3 && len != 4)
 		return (-1);
 	if (len == 3)
