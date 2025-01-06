@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:34:05 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 11:06:16 by christophed      ###   ########.fr       */
+/*   Updated: 2025/01/06 12:04:02 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	instruction_4(t_stack **a, t_stack **b, char *line)
 // Returns 0 if the instruction is executed, -1 if the instruction is not found
 int	instruction_3(t_stack **a, t_stack **b, char *line)
 {
-	if (ft_strncmp(line, "sa\n", 2) == 0)
+	if (ft_strncmp(line, "sa\n", 3) == 0)
 		quiet_sa(a);
 	else if (ft_strncmp(line, "sb\n", 3) == 0)
 		quiet_sb(b);
@@ -62,8 +62,9 @@ int	instruction(t_stack **a, t_stack **b, char *line)
 	int	len;
 
 	len = ft_strlen(line);
+	ft_printf("len = %d\n", len);
 	if (len != 3 && len != 4)
-		return (0);
+		return (-1);
 	if (len == 3)
 	{
 		if (instruction_3(a, b, line) < 0)

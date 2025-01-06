@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+         #
+#    By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 16:21:20 by christophed       #+#    #+#              #
-#    Updated: 2024/12/28 10:51:01 by christophed      ###   ########.fr        #
+#    Updated: 2025/01/06 12:22:13 by chdonnat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Nom de l'exécutable
+# executable name
 TARGET = push_swap
 BONUS_TARGET = checker
 
-# Répertoires
+# directories
 SRC_DIR = src
 UTILS_DIR = utils
 OBJ_DIR = obj
@@ -24,7 +24,7 @@ INC_DIR = includes
 LIBFT_DIR = libft
 BONUS_DIR = bonus
 
-# Fichiers source et objets
+# src and obj files
 MAIN = $(SRC_DIR)/main.c
 BONUS_MAIN = $(BONUS_DIR)/main.c
 SRCS = $(filter-out $(MAIN), $(wildcard $(SRC_DIR)/*.c)) $(wildcard $(UTILS_DIR)/*.c)
@@ -35,16 +35,16 @@ BONUS_OBJS = $(patsubst %.c, $(OBJ_DIR_BONUS)/%.o, $(notdir $(BONUS_SRCS)))
 MAIN_OBJ = $(patsubst %.c, $(OBJ_DIR_MAIN)/%.o, $(notdir $(MAIN)))
 BONUS_MAIN_OBJ = $(patsubst %.c, $(OBJ_DIR_BONUS)/%.o, $(notdir $(BONUS_MAIN)))
 
-# Options de compilation
+# comilation options
 CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR) -I$(LIBFT_DIR)/includes
 
-# Spécifier le compilateur
+# compiler
 CC = gcc
 
-# Options de l'éditeur de liens
+# options
 LDFLAGS = -L$(LIBFT_DIR) -lft
 
-# Règles
+# rules
 all: $(TARGET)
 
 $(TARGET): $(OBJS) $(MAIN_OBJ) $(LIBFT_DIR)/libft.a
@@ -89,69 +89,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re
-
-# # Nom de l'exécutable
-# TARGET = push_swap
-# BONUS_TARGET = checker
-
-# # Répertoires
-# SRC_DIR = src
-# UTILS_DIR = utils
-# OBJ_DIR = obj
-# INC_DIR = includes
-# LIBFT_DIR = libft
-# BONUS_DIR = bonus
-
-# # Fichiers source et objets
-# MAIN = $(SRC_DIR)/main.c
-# SRCS = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(UTILS_DIR)/*.c)
-# OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
-# BONUS_SRCS = $(filter-out $(MAIN), $(wildcard $(SRC_DIR)/*.c)) $(wildcard $(BONUS_DIR)/*.c) $(wildcard $(UTILS_DIR)/*.c)
-# BONUS_OBJS = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(BONUS_SRCS)))
-
-# # Options de compilation
-# CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR) -I$(LIBFT_DIR)/includes
-
-# # Spécifier le compilateur
-# CC = gcc
-
-# # Options de l'éditeur de liens
-# LDFLAGS = -L$(LIBFT_DIR) -lft
-
-# # Règles
-# all: $(TARGET)
-
-# $(TARGET): $(OBJS) $(LIBFT_DIR)/libft.a
-# 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
-
-# bonus: $(BONUS_TARGET)
-
-# $(BONUS_TARGET): $(BONUS_OBJS) $(LIBFT_DIR)/libft.a
-# 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
-
-# $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-# 	@mkdir -p $(OBJ_DIR)
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(UTILS_DIR)/%.c
-# 	@mkdir -p $(OBJ_DIR)
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c
-# 	@mkdir -p $(OBJ_DIR)
-# 	$(CC) $(CFLAGS) -o $@ -c $<
-
-# $(LIBFT_DIR)/libft.a:
-# 	$(MAKE) -C $(LIBFT_DIR)
-
-# clean:
-# 	$(MAKE) -C $(LIBFT_DIR) clean
-# 	rm -rf $(OBJ_DIR)
-
-# fclean: clean
-# 	$(MAKE) -C $(LIBFT_DIR) fclean
-# 	rm -f $(TARGET) $(BONUS_TARGET)
-
-# re: fclean all
-
-# .PHONY: all clean fclean re

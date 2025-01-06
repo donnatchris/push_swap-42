@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
+/*   By: chdonnat <chdonnat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:13:35 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 11:12:04 by christophed      ###   ########.fr       */
+/*   Updated: 2025/01/06 11:45:52 by chdonnat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac != 2)
+	if (ac < 2)
 		return (0);
-	args = ft_split(av[1], ' ');
+	else if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = av +1;
 	if (check_input(args) == -1)
 		return (clear_all(&a, &b, args, ac), write(2, "Error\n", 6), 2);
 	a = dclst_load(args);
