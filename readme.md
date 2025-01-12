@@ -2,7 +2,6 @@
 By chdonnat (Christophe Donnat from 42 Perpignan, France)
 
 ## AIM OF THE PROJECT:
-
 The Push swap project is a simple and efficient algorithmic exercise:
 you need to sort data.
 You have at your disposal a set of integers, two stacks,
@@ -12,6 +11,15 @@ and displays on the standard output the smallest program,
 made of Push swap language instructions, that sorts the integers passed as parameters.
 ### BONUS
 Make your own checker program to test the output of you push_swap program
+
+## ARCHITECTURE:
+- src/ directory for the main files of the mandatory part
+- utils/ directory for secondary files of the mandatory part
+- includes/ directory for header files
+- bonus/ directory for the bonus part
+- libft/ directory with my own library (standard functions, ft_printf, get_next_line)
+- Makefile (with rules: make bonus clean fclean re):
+- readme.md for explanations and main commands of the project
 
 ## SOME COMMANDS YOU CAN USE:
 
