@@ -13,13 +13,16 @@ made of Push swap language instructions, that sorts the integers passed as param
 Make your own checker program to test the output of you push_swap program
 
 ## ARCHITECTURE:
-- src/ directory for the main files of the mandatory part
-- utils/ directory for secondary files of the mandatory part
-- includes/ directory for header files
-- bonus/ directory for the bonus part
-- libft/ directory with my own library (standard functions, ft_printf, get_next_line)
-- Makefile (with rules: make bonus clean fclean re):
-- readme.md for explanations and main commands of the project
+- **src/** directory for the main files of the mandatory part
+- **utils/** directory for secondary files of the mandatory part
+- **includes/** directory for header files
+- **bonus/** directory for the bonus part
+- **tests/** directory with:
+	- checker files for Mac and Linux (give,n with the subjet)
+ 	- a test_generator that can generate a list of numbers to test push_swap
+- **libft/** directory with my own library (standard functions, ft_printf, get_next_line)
+- **Makefile** (with rules: make bonus clean fclean re):
+- **readme.md** for explanations and main commands of the project
 
 ## SOME COMMANDS YOU CAN USE:
 
