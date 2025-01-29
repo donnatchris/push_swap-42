@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 10:41:41 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 10:42:20 by christophed      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:49:53 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	quiet_sb(t_stack **b)
 // and swap the first two elements of swap_b
 void	quiet_ss(t_stack **a, t_stack **b)
 {
-	if (!a || !*a || !b || !*b)
-		return ;
-	dclst_swap_nodes(a, *a, (*a)->next);
-	dclst_swap_nodes(b, *b, (*b)->next);
+	if (!a && !*a)
+		dclst_swap_nodes(a, *a, (*a)->next);
+	if (!b && !*b)
+		dclst_swap_nodes(b, *b, (*b)->next);
 }

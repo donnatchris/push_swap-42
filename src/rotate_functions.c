@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 08:59:39 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 00:18:53 by christophed      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:52:43 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 // Function to shift all the elements of stack a up by one position
 void	ra(t_stack **a)
 {
+	write(1, "ra\n", 3);
 	if (!a || !*a || *a == (*a)->next)
 		return ;
-	write(1, "ra\n", 3);
 	*a = (*a)->next;
 }
 
@@ -35,9 +35,9 @@ void	rb(t_stack **b)
 // and shift all the elements of stack b up by one position
 void	rr(t_stack **a, t_stack **b)
 {
-	if (!a || !b || !*a || !*b)
-		return ;
 	write(1, "rr\n", 3);
-	*a = (*a)->next;
-	*b = (*b)->next;
+	if (a && *a)
+		*a = (*a)->next;
+	if (b && *b)
+		*b = (*b)->next;
 }

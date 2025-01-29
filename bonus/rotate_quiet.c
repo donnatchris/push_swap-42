@@ -6,7 +6,7 @@
 /*   By: christophedonnat <christophedonnat@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:15:17 by christophed       #+#    #+#             */
-/*   Updated: 2024/12/28 11:08:56 by christophed      ###   ########.fr       */
+/*   Updated: 2025/01/29 18:50:18 by christophed      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	quiet_rb(t_stack **b)
 // and shift all the elements of stack b up by one position
 void	quiet_rr(t_stack **a, t_stack **b)
 {
-	if (!a || !b || !*a || !*b)
-		return ;
-	*a = (*a)->next;
-	*b = (*b)->next;
+	if (a && *a)
+		*a = (*a)->next;
+	if (b && *b)
+		*b = (*b)->next;
 }
