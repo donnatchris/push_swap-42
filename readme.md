@@ -29,7 +29,7 @@ generate a list of 500 integers (without doubles) separated by spaces
 and assign the list to the variable ARG
 (you can choose anothe number like 100 or 5 for exemple)
  
-	ARG=$(./tests/test_generator 500)
+	ARG=$(<put here your list of numbers to sort>)
 
 count the number of steps used by push_swap to sort the numbers in ARG
 
