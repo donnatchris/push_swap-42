@@ -64,7 +64,8 @@ You can find this algorithm in my other repository:
 [recursive_push_swap.
 ](https://github.com/donnatchris/recursive_push_swap)
 
---
+---
+
 ## DOCUMENTATION
 
 ### Complexity
