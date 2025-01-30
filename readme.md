@@ -61,8 +61,10 @@ Finally, it performs a rotation on stack A to place the smallest value at the to
 For this project, I used two doubly circular linked lists to represent the stacks.
 You will find the functions to manipulate these doubly circular linked lists in the files dclst.c.
 
-If you'd like to see a much more original sorting approach (which requires fewer calculations, even if it needs more moves), I coded a push_swap that uses three recursive functions. It was a real puzzle to implement, but the result is very satisfying. Unfortunately, I didn’t use this version for the 42 project because it couldn’t achieve the best score for sorting 100 values. It takes over 700 moves for 100 values but stays under 5500 moves for 500 values.
-You can find this algorithm in my other repository:
+> If you'd like to see a much more original sorting approach (which requires fewer calculations, even if it needs more moves), I coded a push_swap that uses three recursive functions. > It was a real puzzle to implement, but the result is very satisfying.
+> Unfortunately, I didn’t use this version for the 42 project because it couldn’t achieve the best score for sorting 100 values.
+> It takes over 700 moves for 100 values but stays under 5500 moves for 500 values.
+> You can find this algorithm in my other repository:
 
 [recursive_push_swap.
 ](https://github.com/donnatchris/recursive_push_swap)
