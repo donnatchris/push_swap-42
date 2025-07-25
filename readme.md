@@ -1,3 +1,5 @@
+##### [🇫🇷 Version française](README.fr.md) / [🇬🇧 English version](README.md)
+
 # PROJECT PUSH_SWAP FOR 42
 By chdonnat (Christophe Donnat from 42 Perpignan, France)
 
